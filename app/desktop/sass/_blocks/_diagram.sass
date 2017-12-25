@@ -35,16 +35,12 @@
   overflow-x: hidden
   z-index: 2
 
+.diagram__floor
+  padding-top: 21px
+
 .diagram__row
   position: relative
   display: flex
-
-.diagram__sidebar
-  position: relative
-  width: 245px
-  padding-left: 24px
-  box-sizing: border-box
-  flex: 0 0 auto
 
 .diagram__time-line .diagram__sidebar
   padding-left: 0
@@ -58,10 +54,6 @@
   height: calc(100vh - 46px - 71px)
   background-color: #E9ECEF
 
-.diagram__content .diagram__sidebar
-  //height: calc(100vh - 46px - 71px)
-  //border-right: 1px solid #E9ECEF
-
 .diagram__row-body
   display: flex
   flex: 1 0 auto
@@ -71,7 +63,6 @@
   position: relative
   width: calc((6600 / 1280) * 1vw)
   min-width: 66px
-  //5.156vw
   box-sizing: border-box
 
 .diagram__time
@@ -111,9 +102,9 @@
   right: 0
   bottom: 0
   width: 1px
+  margin-left: -1px
   height: calc(100vh - 46px - 71px)
-  transform: translateX(-50%)
-  background-color: #dee7f4
+  border-left: 1px solid rgba(19,100,205,0.10)
   z-index: 1
 
 .diagram__time--now::before
@@ -129,4 +120,43 @@
   transform: translateX(-50%)
   background-color: #007DFF
 
+.diagram__floor-title
+  margin-bottom: 12px
 
+.diagram__floor-title .diagram__sidebar
+  font-size: 11px
+  line-height: 13px
+  letter-spacing: .4px
+  color: #858E98
+  font-weight: 600
+
+.diagram__sidebar
+  position: relative
+  width: 245px
+  padding-left: 24px
+  box-sizing: border-box
+  flex: 0 0 auto
+
+.diagram__room
+  margin-bottom: 28px
+  height: 28px
+
+.diagram__room-name
+  font-size: 15px
+  line-height: 17px
+  font-weight: 500
+
+.diagram__room .diagram__room-name
+  margin-top: -4px
+  margin-bottom: 2px
+
+.diagram__room-capacity
+  font-size: 13px
+  line-height: 17px
+
+.diagram__room--filled .diagram__room-name,
+.diagram__room--filled .diagram__room-capacity
+  color: #858E98
+
+.diagram__room .diagram__row-body
+  background-color: #d5dfe9
