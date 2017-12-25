@@ -92,3 +92,5 @@ gulp.task('mobile', function() {
   platform = 'mobile';
   gulp.start('watch')
 });
+
+gulp.task('default', ['desktop']);
