@@ -1,7 +1,11 @@
 .diagram
   height: calc(100vh - 71px)
   overflow-y: hidden
-  overflow-x: hidden
+  overflow-x: auto
+
+.diagram__body
+  min-width: 1280px
+  overflow: hidden
 
 .diagram__time-line
   position: relative
@@ -31,8 +35,10 @@
 .diagram__content
   position: relative
   height: 100%
+  padding-bottom: 60px
   overflow-y: auto
   overflow-x: hidden
+  box-sizing: border-box
   z-index: 2
 
 .diagram__floor
@@ -55,6 +61,7 @@
   background-color: #E9ECEF
 
 .diagram__row-body
+  position: relative
   display: flex
   flex: 1 0 auto
   padding-left: 30px
@@ -93,19 +100,27 @@
 .diagram__time-line .diagram__time--now
   left: 10%
 
-.diagram__time-line .diagram__cell::before
+.diagram__time-line .diagram__cell::before,
+.diagram__time-line .diagram__cell:last-child::after
   content: ''
   display: block
   position: absolute
   top: 35px
   left: 0
-  right: 0
   bottom: 0
   width: 1px
   margin-left: -1px
   height: calc(100vh - 46px - 71px)
   border-left: 1px solid rgba(19,100,205,0.10)
   z-index: 1
+
+.diagram__time-line .diagram__cell:last-child::after
+  left: auto
+  right: 0
+  margin-left: auto
+  margin-right: -1px
+
+
 
 .diagram__time--now::before
   content: ''
@@ -119,6 +134,12 @@
   height: calc(100vh - 33px - 71px)
   transform: translateX(-50%)
   background-color: #007DFF
+
+.diagram__floor
+  margin-bottom: 7px
+
+.diagram__floor:last-child
+  margin-bottom: 0
 
 .diagram__floor-title
   margin-bottom: 12px
@@ -139,7 +160,12 @@
 
 .diagram__room
   margin-bottom: 28px
+
+.diagram__room .diagram__row
   height: 28px
+
+.diagram__floor .diagram__room:last-child
+  margin-bottom: 0
 
 .diagram__room-name
   font-size: 15px
@@ -158,5 +184,18 @@
 .diagram__room--filled .diagram__room-capacity
   color: #858E98
 
+.diagram__room--focused .diagram__room-name
+  font-weight: 600
+  color: #0070E0
+
 .diagram__room .diagram__row-body
   background-color: #d5dfe9
+
+.diagram__add-event
+  position: absolute
+  top: 0
+  height: 28px
+
+.diagram__add-event--example
+  left: 12%
+  right: 1px
