@@ -626,6 +626,10 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
+.diagram__cell--example {
+  width: -webkit-calc((6600 / 1280) * 2vw);
+  width: calc((6600 / 1280) * 2vw); }
+
 .diagram__time {
   display: inline-block;
   vertical-align: top;
@@ -743,13 +747,19 @@ body {
   font-size: 13px;
   line-height: 17px; }
 
-.diagram__room--filled .diagram__room-name,
-.diagram__room--filled .diagram__room-capacity {
-  color: #858E98; }
-
 .diagram__room--focused .diagram__room-name {
-  font-weight: 600;
+  font-weight: 600; }
+
+.diagram__room:hover .diagram__room-name {
   color: #0070E0; }
+
+.diagram__room:active .diagram__room-name {
+  color: #1D54FE; }
+
+.diagram__room--filled .diagram__room-name,
+.diagram__room--filled .diagram__room-capacity,
+.diagram__room--filled:hover .diagram__room-name {
+  color: #858E98; }
 
 .diagram__room .diagram__row-body {
   background-color: #d5dfe9; }
@@ -762,6 +772,50 @@ body {
 .diagram__add-event--example {
   left: 12%;
   right: 1px; }
+
+.time-slot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  height: 28px; }
+
+.time-slot--empty {
+  background-color: #fff; }
+  .time-slot--empty::before, .time-slot--empty::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    background-color: #fff;
+    width: 12px;
+    height: 2px;
+    margin-left: -6px;
+    margin-top: -1px;
+    -webkit-border-radius: 10px;
+            border-radius: 10px; }
+  .time-slot--empty::after {
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg); }
+
+.time-slot--empty:hover {
+  background-color: #007DFF;
+  -webkit-border-radius: 2px;
+          border-radius: 2px; }
+
+.time-slot--empty:focus {
+  background-color: #1D00FE;
+  -webkit-border-radius: 2px;
+          border-radius: 2px; }
+
+.time-slot--example {
+  left: 11.5%; }
+
+.time-slot--filled:hover {
+  background-color: #99A9B9; }
 
 .calendar__header {
   position: relative;
@@ -799,6 +853,7 @@ body {
   position: absolute;
   top: 35px;
   left: 24px;
+  display: none;
   width: 604px;
   height: 232px;
   padding: 16px;
@@ -844,6 +899,7 @@ body {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  display: none;
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;

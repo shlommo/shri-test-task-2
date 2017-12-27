@@ -72,6 +72,9 @@
   min-width: 66px
   box-sizing: border-box
 
+.diagram__cell--example
+  width: calc((6600 / 1280) * 2vw)
+
 .diagram__time
   display: inline-block
   vertical-align: top
@@ -180,13 +183,21 @@
   font-size: 13px
   line-height: 17px
 
-.diagram__room--filled .diagram__room-name,
-.diagram__room--filled .diagram__room-capacity
-  color: #858E98
+
 
 .diagram__room--focused .diagram__room-name
   font-weight: 600
+
+.diagram__room:hover .diagram__room-name
   color: #0070E0
+
+.diagram__room:active .diagram__room-name
+  color: #1D54FE
+
+.diagram__room--filled .diagram__room-name,
+.diagram__room--filled .diagram__room-capacity,
+.diagram__room--filled:hover .diagram__room-name
+  color: #858E98
 
 .diagram__room .diagram__row-body
   background-color: #d5dfe9
@@ -199,3 +210,5 @@
 .diagram__add-event--example
   left: 12%
   right: 1px
+
+
