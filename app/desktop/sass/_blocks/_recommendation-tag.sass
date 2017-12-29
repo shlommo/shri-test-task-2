@@ -1,0 +1,54 @@
+.recommendation-tag
+  position: relative
+  display: flex
+  padding: 11px 40px 10px 10px
+  border-radius: 4px
+  font-size: 13px
+  line-height: 17px
+  box-sizing: border-box
+
+.field .recommendation-tag
+  margin-bottom: 8px
+
+.recommendation-tag__time
+  display: block
+  font-weight: 600
+
+.recommendation-tag__room
+  margin-left: 16px
+  font-weight: 400
+  
+.recommendation-tag--simple
+  background-color: #E9ECEF
+  color: #000
+
+.recommendation-tag--selected
+  background-color: #007DFF
+  color: #fff
+
+.recommendation-tag--selected .recommendation-tag__delete
+  display: block
+
+.recommendation-tag__delete
+  position: absolute
+  top: 50%
+  right: 10px
+  display: none
+  width: 20px
+  height: 20px
+  cursor: pointer
+  border: none
+  background-color: transparent
+  transform: translateY(-50%)
+  cursor: pointer
+
+.recommendation-tag__delete i
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  width: 10px
+  height: 10px
+
+.recommendation-tag__delete svg
+  fill: #ffffff !important

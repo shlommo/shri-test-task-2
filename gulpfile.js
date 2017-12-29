@@ -3,6 +3,7 @@ var gulp           = require('gulp'),
 		sass           = require('gulp-sass'),
 		browserSync    = require('browser-sync'),
 		concat         = require('gulp-concat'),
+		babel 				 = require('gulp-babel'),
 		uglify         = require('gulp-uglify'),
 		cleanCSS       = require('gulp-clean-css'),
 		rename         = require('gulp-rename'),
@@ -22,6 +23,11 @@ gulp.task('js', function() {
 		'app/'+platform+'/js/common.js',
 		])
 	.pipe(concat('common.min.js'))
+	.pipe(
+    babel({
+      presets: ['env']
+    })
+	)
 	.pipe(uglify())
 	.pipe(gulp.dest('app/'+platform+'/js'))
 	.pipe(browserSync.reload({stream: true}));

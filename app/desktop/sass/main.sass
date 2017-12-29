@@ -3,19 +3,19 @@
 @import "vars"
 
 *::-webkit-input-placeholder
-	color: #666
+	color: #858E98
 	opacity: 1
 
 *:-moz-placeholder
-	color: #666
+	color: #858E98
 	opacity: 1
 
 *::-moz-placeholder
-	color: #666
+	color: #858E98
 	opacity: 1
 
 *:-ms-input-placeholder
-	color: #666
+	color: #858E98
 	opacity: 1
 
 body input:focus:required:invalid,
@@ -45,12 +45,29 @@ body
 	padding-left: 24px
 	padding-right: 24px
 
+h1,
+h2,
+h3,
+h4,
+p,
+ul
+	margin: 0
+	padding: 0
+
+i svg
+	display: block
+
 @import "_blocks/header"
 @import "_blocks/logo"
 @import "_blocks/button"
 @import "_blocks/diagram"
 @import "_blocks/time-slot"
 @import "_blocks/calendar"
-@import "_blocks/circle-arrow"
+@import "_blocks/circle-icon"
 @import "_blocks/popup"
 @import "_blocks/inform-popup"
+@import "_blocks/event-form"
+@import "_blocks/field"
+@import "_blocks/field-autocomplete"
+@import "_blocks/recommendation-tag"
+@import "_blocks/user"
