@@ -1,39 +1,47 @@
-var gulp           = require('gulp'),
-		gutil          = require('gulp-util' ),
-		sass           = require('gulp-sass'),
-		browserSync    = require('browser-sync'),
-		concat         = require('gulp-concat'),
-		babel 				 = require('gulp-babel'),
-		uglify         = require('gulp-uglify'),
-		cleanCSS       = require('gulp-clean-css'),
-		rename         = require('gulp-rename'),
-		del            = require('del'),
-		imagemin       = require('gulp-imagemin'),
-		cache          = require('gulp-cache'),
-		autoprefixer   = require('gulp-autoprefixer'),
-		ftp            = require('vinyl-ftp'),
-		notify         = require("gulp-notify");
+'use-strict';
+
+const gulp = require('gulp');
+// const gutil = require('gulp-util' );
+const sass = require('gulp-sass');
+const browserSync = require('browser-sync');
+const concat = require('gulp-concat');
+const babel = require('gulp-babel');
+const sourcemaps = require('gulp-sourcemaps');
+const webpack = require('gulp-webpack');
+const uglify = require('gulp-uglify');
+const cleanCSS = require('gulp-clean-css');
+const rename = require('gulp-rename');
+const del = require('del');
+const imagemin = require('gulp-imagemin');
+const cache = require('gulp-cache');
+const autoprefixer = require('gulp-autoprefixer');
+const ftp = require('vinyl-ftp');
+const notify = require("gulp-notify");
 
 // Скрипты проекта
 
-var platform = '';
+let platform = '';
 
-gulp.task('js', function() {
+gulp.task('js', () => {
 	return gulp.src([
 		'app/'+platform+'/js/common.js',
 		])
-	.pipe(concat('common.min.js'))
-	.pipe(
-    babel({
-      presets: ['env']
-    })
-	)
-	.pipe(uglify())
-	.pipe(gulp.dest('app/'+platform+'/js'))
-	.pipe(browserSync.reload({stream: true}));
+		.pipe(webpack({
+			devtool: 'source-map',
+			module: {
+				loaders: [
+					{ test: /\.js$/, loader: 'babel-loader'},
+				],
+			},
+			output: {
+				filename: 'common.js'
+			}
+		}))
+		.pipe(gulp.dest('app/'+platform+'/js'))
+		.pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', () => {
 	browserSync({
 		server: {
 			baseDir: 'app/'+platform
@@ -44,57 +52,57 @@ gulp.task('browser-sync', function() {
 	});
 });
 
-gulp.task('sass', function() {
+gulp.task('sass', () => {
 	return gulp.src('app/'+platform+'/sass/**/*.sass')
-	.pipe(sass({outputStyle: 'expand'}).on("error", notify.onError()))
-	.pipe(rename({suffix: '.min', prefix : ''}))
-	.pipe(autoprefixer(['last 15 versions']))
-	// .pipe(cleanCSS()) // Опционально, закомментировать при отладке
-	.pipe(gulp.dest('app/'+platform+'/css'))
-	.pipe(browserSync.reload({stream: true}));
+		.pipe(sass({outputStyle: 'expand'}).on("error", notify.onError()))
+		.pipe(rename({suffix: '.min', prefix : ''}))
+		.pipe(autoprefixer(['last 15 versions']))
+		// .pipe(cleanCSS()) // Опционально, закомментировать при отладке
+		.pipe(gulp.dest('app/'+platform+'/css'))
+		.pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('watch', ['sass', 'js', 'browser-sync'], function() {
+gulp.task('watch', ['sass', 'js', 'browser-sync'], () => {
 	gulp.watch('app/'+platform+'/sass/**/*.sass', ['sass']);
 	gulp.watch('app/'+platform+'/js/common.js', ['js']);
 	gulp.watch('app/'+platform+'/*.html', browserSync.reload);
 });
 
-gulp.task('imagemin', function() {
+gulp.task('imagemin', () => {
 	return gulp.src('app/'+platform+'/img/**/*')
 	.pipe(cache(imagemin()))
 	.pipe(gulp.dest('dist/'+platform+'/img'));
 });
 
-gulp.task('build', ['removedist', 'imagemin', 'sass', 'js'], function() {
+gulp.task('build', ['removedist', 'imagemin', 'sass', 'js'], () => {
 
-	var buildFiles = gulp.src([
+	const buildFiles = gulp.src([
 		'app/'+platform+'/*.html',
 		]).pipe(gulp.dest('dist/'+platform));
 
-	var buildCss = gulp.src([
+	const buildCss = gulp.src([
 		'app/'+platform+'/css/main.min.css',
 		]).pipe(gulp.dest('dist/'+platform+'/css'));
 
-	var buildJs = gulp.src([
+	const buildJs = gulp.src([
 		'app/'+platform+'/js/scripts.min.js',
 		]).pipe(gulp.dest('dist/'+platform+'/js'));
 
-	var buildFonts = gulp.src([
+	const buildFonts = gulp.src([
 		'app/'+platform+'/fonts/**/*',
 		]).pipe(gulp.dest('dist/'+platform+'/fonts'));
 
 });
 
-gulp.task('removedist', function() { return del.sync('dist'); });
-gulp.task('clearcache', function () { return cache.clearAll(); });
+gulp.task('removedist', () => { return del.sync('dist'); });
+gulp.task('clearcache', () => { return cache.clearAll(); });
 
-gulp.task('desktop', function() {
+gulp.task('desktop', () => {
   platform = 'desktop';
   gulp.start('watch')
 });
 
-gulp.task('mobile', function() {
+gulp.task('mobile', () => {
   platform = 'mobile';
   gulp.start('watch')
 });

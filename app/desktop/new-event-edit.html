@@ -28,14 +28,12 @@
 <header class="header">
     <div class="container">
         <div class="logo"></div>
-
-        <a href="#" class="button button--blue">Создать встречу</a>
     </div>
 </header>
 
 <div class="event-form">
     <div class="event-form__header">
-        <h3 class="event-form__title">Новая встреча</h3>
+        <h3 class="event-form__title">Редактирование встречи</h3>
 
         <a href="#" class="event-form__close circle-icon">
             <i>
@@ -50,7 +48,7 @@
         <div class="event-form__col">
             <div class="field">
                 <label class="field__label" for="fieldInputOne">Тема</label>
-                <input type="text" name="fieldInput" id="fieldInputOne" placeholder="О чём будете говорить?">
+                <input type="text" name="fieldInput" id="fieldInputOne" placeholder="О чём будете говорить?" value="Тестовое задание в ШРИ">
                 <a href="#" class="field__reset">
                     <i>
                         <svg width="12" height="12">
@@ -65,21 +63,21 @@
             <div class="event-form__col-date">
                 <div class="field field--date">
                     <label class="field__label" for="fieldInputTwo">Дата</label>
-                    <input type="text" name="fieldInput" id="fieldInputTwo" placeholder="28 декабря, 2017">
+                    <input type="text" name="fieldInput" id="fieldInputTwo" placeholder="28 декабря, 2017" value="28 декабря, 2017">
                 </div>
             </div>
 
             <div class="event-form__col-time">
                 <div class="field">
                     <label class="field__label" for="fieldInputThree">Начало</label>
-                    <input type="text" name="fieldInput" id="fieldInputThree" placeholder="16:00">
+                    <input type="text" name="fieldInput" id="fieldInputThree" placeholder="16:00" value="16:00">
                 </div>
 
                 <i class="event-form__col-time-separator"></i>
 
                 <div class="field">
                     <label class="field__label" for="fieldInputFour">Конец</label>
-                    <input type="text" name="fieldInput" id="fieldInputFour" placeholder="16:30">
+                    <input type="text" name="fieldInput" id="fieldInputFour" placeholder="16:30" value="16:30">
                 </div>
             </div>
         </div>
@@ -147,46 +145,14 @@
 
         <div class="event-form__col">
             <div class="field">
-                <span class="field__label">Рекомендованные переговорки</span>
+                <span class="field__label">Ваша переговорка</span>
 
-                <div class="recommendation-tag recommendation-tag--simple">
+                <div class="recommendation-tag recommendation-tag--selected">
                     <span class="recommendation-tag__time">
                         16:00—16:30
                     </span>
                     <span class="recommendation-tag__room">
                         Готем · 4 этаж
-                    </span>
-                    <button class="recommendation-tag__delete">
-                        <i>
-                            <svg width="10" height="10">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
-                            </svg>
-                        </i>
-                    </button>
-                </div>
-
-                <div class="recommendation-tag recommendation-tag--simple">
-                    <span class="recommendation-tag__time">
-                        16:00—16:30
-                    </span>
-                    <span class="recommendation-tag__room">
-                        Поле непаханное · 4 этаж
-                    </span>
-                    <button class="recommendation-tag__delete">
-                        <i>
-                            <svg width="10" height="10">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
-                            </svg>
-                        </i>
-                    </button>
-                </div>
-
-                <div class="recommendation-tag recommendation-tag--simple">
-                    <span class="recommendation-tag__time">
-                        16:00—16:30
-                    </span>
-                    <span class="recommendation-tag__room">
-                        Тёмная башня · 4 этаж
                     </span>
                     <button class="recommendation-tag__delete">
                         <i>
@@ -202,7 +168,8 @@
 
     <div class="event-form__footer">
         <button class="button button--gray">Отмена</button>
-        <button class="button button--blue">Создать встречу</button>
+        <button class="button button--gray">Удалить встречу</button>
+        <button class="button button--blue">Сохранить</button>
     </div>
 </div>
 

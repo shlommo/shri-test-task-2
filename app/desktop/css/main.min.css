@@ -1051,6 +1051,10 @@ i svg {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
   padding-bottom: 60px; }
 
 .event-form__footer {
@@ -1131,6 +1135,9 @@ i svg {
   outline: none;
   border-color: #007DFF; }
 
+.field.filled .field__reset {
+  display: block; }
+
 .field:hover input {
   border-color: #007DFF; }
 
@@ -1141,7 +1148,11 @@ i svg {
   display: none;
   width: 37px;
   height: 37px;
-  font-size: 0; }
+  font-size: 0;
+  opacity: .3; }
+
+.field__reset:focus {
+  outline: none; }
 
 .field__reset i {
   position: absolute;
@@ -1152,10 +1163,10 @@ i svg {
           transform: translate(-50%, -50%);
   display: block;
   width: 12px;
-  height: 12px;
-  opacity: .3; }
+  height: 12px; }
 
-.field__reset:hover i {
+.field input:hover ~ .field__reset,
+.field__reset:hover {
   opacity: 1; }
 
 .field__reset svg {
@@ -1178,19 +1189,25 @@ i svg {
 .field-autocomplete {
   position: relative; }
 
+.field-autocomplete.opened .field-autocomplete__dropdown {
+  display: block; }
+
 .field-autocomplete input {
   padding-right: 40px; }
 
 .field-autocomplete__dropdown {
   position: absolute;
   top: 58px;
-  left: 0;
-  right: 0;
+  left: 2px;
+  right: 2px;
+  display: none;
+  max-height: 102px;
   background-color: #fff;
   -webkit-border-radius: 4px;
           border-radius: 4px;
   -webkit-box-shadow: 0 1px 10px 0 rgba(0, 44, 92, 0.28);
-          box-shadow: 0 1px 10px 0 rgba(0, 44, 92, 0.28); }
+          box-shadow: 0 1px 10px 0 rgba(0, 44, 92, 0.28);
+  overflow-y: auto; }
 
 .field-autocomplete__dropdown ul {
   list-style: none;
@@ -1217,6 +1234,34 @@ i svg {
 
 .field-autocomplete__dropdown-item .user {
   color: #000; }
+
+.field-autocomplete.filled .field__reset {
+  display: block; }
+
+.field-autocomplete__arrow {
+  position: absolute;
+  top: 33px;
+  right: 15px;
+  display: none;
+  width: 10px;
+  height: 10px;
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg); }
+
+.field-autocomplete.opened .field-autocomplete__arrow {
+  display: block; }
+
+.field-autocomplete__tags {
+  margin-top: 12px;
+  margin-left: -4px;
+  margin-right: -4px;
+  font-size: 0; }
+
+.field-autocomplete__tags .user-tag {
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-bottom: 8px; }
 
 .recommendation-tag {
   position: relative;
@@ -1305,3 +1350,37 @@ i svg {
   overflow: hidden;
   -webkit-border-radius: 50%;
           border-radius: 50%; }
+
+.user-tag {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 36px;
+  background-color: #E9ECEF;
+  -webkit-border-radius: 16px;
+          border-radius: 16px; }
+
+.user-tag__icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 32px;
+  height: 24px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  opacity: .4; }
+
+.user-tag__icon i {
+  position: absolute;
+  top: 50%;
+  right: 11px;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  display: block;
+  width: 10px;
+  height: 10px; }
+
+.user-tag:hover .user-tag__icon {
+  opacity: 1; }

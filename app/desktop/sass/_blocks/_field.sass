@@ -25,6 +25,9 @@
   outline: none
   border-color: #007DFF
 
+.field.filled .field__reset
+  display: block
+
 .field:hover input
   border-color: #007DFF
 
@@ -36,6 +39,10 @@
   width: 37px
   height: 37px
   font-size: 0
+  opacity: .3
+
+.field__reset:focus
+  outline: none
 
 .field__reset i
   position: absolute
@@ -45,9 +52,9 @@
   display: block
   width: 12px
   height: 12px
-  opacity: .3
 
-.field__reset:hover i
+.field input:hover ~ .field__reset,
+.field__reset:hover
   opacity: 1
 
 .field__reset svg
