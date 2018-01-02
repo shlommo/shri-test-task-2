@@ -1,21 +1,24 @@
-// Вставка Svg спрайта и сохрание его в LocalStorage
-(function (window, document) {
-  'use strict';
+export default function () {
   const file = '/img/icons/sprite.svg'; // путь к файлу спрайта
   const revision = 1;            // версия спрайта
-  if (!document.createElementNS || !document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect) return true;
+  if (!document.createElementNS || !document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect) {
+    return true;
+  }
   const isLocalStorage = 'localStorage' in window && window['localStorage'] !== null;
-  let request,
-    data;
+  let request;
+  let data;
   const insertIT = () => {
     document.body.insertAdjacentHTML('afterbegin', data);
   };
   const insert = () => {
-    if (document.body) insertIT();
-    else document.addEventListener('DOMContentLoaded', insertIT);
+    if (document.body) {
+      insertIT();
+    } else {
+      document.addEventListener('DOMContentLoaded', insertIT);
+    }
   };
 
-  if (isLocalStorage && localStorage.getItem('inlineSVGrev') == revision) {
+  if (isLocalStorage && localStorage.getItem('inlineSVGrev') === revision) {
     data = localStorage.getItem('inlineSVGdata');
     if (data) {
       insert();
@@ -37,5 +40,7 @@
     };
     request.send();
   } catch (e) {
+    throw new Error(e);
   }
-}(window, document));
+  return true;
+}

@@ -1,110 +1,126 @@
 'use-strict';
 
-const gulp = require('gulp');
-// const gutil = require('gulp-util' );
-const sass = require('gulp-sass');
-const browserSync = require('browser-sync');
-const concat = require('gulp-concat');
-const babel = require('gulp-babel');
-const sourcemaps = require('gulp-sourcemaps');
-const webpack = require('gulp-webpack');
-const uglify = require('gulp-uglify');
-const cleanCSS = require('gulp-clean-css');
-const rename = require('gulp-rename');
 const del = require('del');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const plumber = require('gulp-plumber');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const server = require('browser-sync').create();
+const mqpacker = require('css-mqpacker');
+const minify = require('gulp-csso');
+const rename = require('gulp-rename');
 const imagemin = require('gulp-imagemin');
-const cache = require('gulp-cache');
-const autoprefixer = require('gulp-autoprefixer');
-const ftp = require('vinyl-ftp');
-const notify = require("gulp-notify");
+const sourcemaps = require('gulp-sourcemaps');
+const babel = require('gulp-babel');
+const webpack = require('gulp-webpack');
+const mocha = require('gulp-mocha');
 
-// Скрипты проекта
-
-let platform = '';
-
-gulp.task('js', () => {
-	return gulp.src([
-		'app/'+platform+'/js/common.js',
-		])
-		.pipe(webpack({
-			devtool: 'source-map',
-			module: {
-				loaders: [
-					{ test: /\.js$/, loader: 'babel-loader'},
-				],
-			},
-			output: {
-				filename: 'common.js'
-			}
-		}))
-		.pipe(gulp.dest('app/'+platform+'/js'))
-		.pipe(browserSync.reload({stream: true}));
+gulp.task('style', function () {
+  gulp.src('app/sass/main.sass')
+    .pipe(plumber())
+    .pipe(sass())
+    .pipe(postcss([
+      autoprefixer({
+        browsers: [
+          'last 1 version',
+          'last 2 Chrome versions',
+          'last 2 Firefox versions',
+          'last 2 Opera versions',
+          'last 2 Edge versions'
+        ]
+      }),
+      mqpacker({sort: true})
+    ]))
+    .pipe(gulp.dest('build/css'))
+    .pipe(server.stream())
+    .pipe(minify())
+    .pipe(rename('main.min.css'))
+    .pipe(gulp.dest('build/css'))
+    .pipe(server.stream());
 });
 
-gulp.task('browser-sync', () => {
-	browserSync({
-		server: {
-			baseDir: 'app/'+platform
-		},
-		notify: false,
-		// tunnel: true,
-		// tunnel: "projectmane", //Demonstration page: http://projectmane.localtunnel.me
-	});
+gulp.task('scripts', function () {
+  gulp.src('app/js/common.js')
+    .pipe(plumber())
+    .pipe(webpack({
+      devtool: 'source-map',
+      module: {
+        loaders: [
+          { test: /\.js$/, loader: 'babel-loader'},
+        ],
+      },
+      output: {
+        filename: 'common.js'
+      }
+    }))
+    .pipe(gulp.dest('build/js/'))
+    .pipe(server.stream());
 });
 
-gulp.task('sass', () => {
-	return gulp.src('app/'+platform+'/sass/**/*.sass')
-		.pipe(sass({outputStyle: 'expand'}).on("error", notify.onError()))
-		.pipe(rename({suffix: '.min', prefix : ''}))
-		.pipe(autoprefixer(['last 15 versions']))
-		// .pipe(cleanCSS()) // Опционально, закомментировать при отладке
-		.pipe(gulp.dest('app/'+platform+'/css'))
-		.pipe(browserSync.reload({stream: true}));
+require('babel-register');
+gulp.task('test', function () {
+  return gulp
+    .src(['app/js/**/*.test.js'], { read: false })
+    .pipe(mocha({
+      compilers: {
+        js: 'babel-register' // Включим поддержку "import/export" в Mocha
+      },
+      reporter: 'spec'       // Вид в котором я хочу отображать результаты тестирования
+    }));
 });
 
-gulp.task('watch', ['sass', 'js', 'browser-sync'], () => {
-	gulp.watch('app/'+platform+'/sass/**/*.sass', ['sass']);
-	gulp.watch('app/'+platform+'/js/common.js', ['js']);
-	gulp.watch('app/'+platform+'/*.html', browserSync.reload);
+gulp.task('imagemin', ['copy'], function () {
+  gulp.src('build/img/**/*.{jpg,png,gif}')
+    .pipe(imagemin([
+      imagemin.optipng({optimizationLevel: 3}),
+      imagemin.jpegtran({progressive: true})
+    ]))
+    .pipe(gulp.dest('build/img'));
 });
 
-gulp.task('imagemin', () => {
-	return gulp.src('app/'+platform+'/img/**/*')
-	.pipe(cache(imagemin()))
-	.pipe(gulp.dest('dist/'+platform+'/img'));
+
+gulp.task('copy-html', function () {
+  gulp.src('app/*.html')
+    .pipe(gulp.dest('build'))
+    .pipe(server.stream());
 });
 
-gulp.task('build', ['removedist', 'imagemin', 'sass', 'js'], () => {
-
-	const buildFiles = gulp.src([
-		'app/'+platform+'/*.html',
-		]).pipe(gulp.dest('dist/'+platform));
-
-	const buildCss = gulp.src([
-		'app/'+platform+'/css/main.min.css',
-		]).pipe(gulp.dest('dist/'+platform+'/css'));
-
-	const buildJs = gulp.src([
-		'app/'+platform+'/js/scripts.min.js',
-		]).pipe(gulp.dest('dist/'+platform+'/js'));
-
-	const buildFonts = gulp.src([
-		'app/'+platform+'/fonts/**/*',
-		]).pipe(gulp.dest('dist/'+platform+'/fonts'));
-
+gulp.task('copy', ['copy-html', 'scripts', 'style'], function () {
+  gulp.src([
+    'app/fonts/**/*.*',
+  ])
+    .pipe(gulp.dest('build/fonts/'));
+  gulp.src([
+    'app/img/**/*.*'
+  ])
+    .pipe(gulp.dest('build/img/'));
 });
 
-gulp.task('removedist', () => { return del.sync('dist'); });
-gulp.task('clearcache', () => { return cache.clearAll(); });
-
-gulp.task('desktop', () => {
-  platform = 'desktop';
-  gulp.start('watch')
+gulp.task('clean', function () {
+  return del('build');
 });
 
-gulp.task('mobile', () => {
-  platform = 'mobile';
-  gulp.start('watch')
+gulp.task('serve', ['assemble'], function () {
+  server.init({
+    server: './build',
+    notify: false,
+    open: true,
+    port: 3501,
+    ui: false
+  });
+
+  gulp.watch('app/sass/**/*.{scss,sass}', ['style']);
+  gulp.watch('app/*.html').on('change', (e) => {
+    if (e.type !== 'deleted') {
+      gulp.start('copy-html');
+    }
+  });
+  gulp.watch('app/js/**/*.js', ['scripts']).on('change', server.reload);
 });
 
-gulp.task('default', ['desktop']);
+gulp.task('assemble', ['clean'], function () {
+  gulp.start('copy', 'style');
+});
+
+gulp.task('build', ['assemble', 'imagemin']);

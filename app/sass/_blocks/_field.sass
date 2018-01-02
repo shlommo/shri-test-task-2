@@ -63,14 +63,25 @@
 .field--date input
   padding-right: 30px
 
-.field--date::before
-  content: ''
+.field__trigger
   position: absolute
-  bottom: 13px
-  right: 12px
-  display: block
-  width: 12px
-  height: 12px
-  background: url("/img/icons/calendar.svg")
+  right: 0
+  bottom: 0
+  display: none
+  width: 32px
+  height: 38px
+  border: none
+  cursor: pointer
+  background-color: transparent
+  background-repeat: no-repeat
+  background-position: 50% 50%
   z-index: 2
+  &:focus
+    outline: none
 
+.field--icon .field__trigger
+  display: block
+
+.field--date .field__trigger
+  background-image: url("/img/icons/calendar.svg")
+  background-size: 12px 12px
