@@ -10,7 +10,7 @@ export default (calendarTriggerId, calendarId, classToAdd, classToBody) => {
     return false;
   }
 
-  const calendarOverlay = calendar.querySelector('.calendar__overlay')
+  const calendarOverlay = calendar.querySelector('.calendar__overlay');
 
   calendarTrigger.addEventListener('click', (e) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ export default (calendarTriggerId, calendarId, classToAdd, classToBody) => {
       body.classList.add(classToBody);
     }
 
-    hideOnClickOutside('#'+calendarId, removeAction);
+    hideOnClickOutside(`#${calendarId}`, removeAction);
 
     addListenerMulti(calendarOverlay, 'click touchstart', removeAction);
   });

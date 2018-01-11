@@ -15,6 +15,6 @@ npm run build
 
 ### Демка
 + [Главная](https://szhakupbekov.github.io/shri-test-task-2/build/index.html)
-+ [Главная: уведомление о создании новой встречи](https://szhakupbekov.github.io/shri-test-task-2/build/index--new-event.html)
++ [Главная: уведомление о создании новой встречи](https://szhakupbekov.github.io/shri-test-task-2/build/index-new-event.html)
 + [Событие: создание](https://szhakupbekov.github.io/shri-test-task-2/build/event-new.html)
 + [Событие: редактирование](https://szhakupbekov.github.io/shri-test-task-2/build/event-edit.html)

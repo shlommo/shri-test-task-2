@@ -22,10 +22,14 @@ const getDay = (date) => { // получить номер дня недели, �
 };
 
 const addListenerMulti = (el, s, fn) => {
-  s.split(' ').forEach(e => el.addEventListener(e, fn, false));
+  s.split(' ').forEach((e) => {
+    el.addEventListener(e, fn, false);
+  });
 };
 const removeListenerMulti = (el, s, fn) => {
-  s.split(' ').forEach(e => el.removeEventListener(e, fn, false));
+  s.split(' ').forEach((e) => {
+    el.removeEventListener(e, fn, false);
+  });
 };
 
 export {getCoords, getNodeFromMarkup, getDay, addListenerMulti, removeListenerMulti};

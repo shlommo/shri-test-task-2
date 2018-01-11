@@ -3,7 +3,6 @@ import {getCoords, getNodeFromMarkup} from './helpers';
 export default () => {
   const diagramBody = document.querySelector('.diagram__body');
   const diagramBodyCnt = document.querySelector('.diagram__body-cnt');
-  const body = document.querySelector('body');
 
   if (diagramBody === null) {
     return;
