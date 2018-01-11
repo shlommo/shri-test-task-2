@@ -123,4 +123,6 @@ gulp.task('assemble', ['clean'], function () {
   gulp.start('copy', 'style');
 });
 
-gulp.task('build', ['assemble', 'imagemin']);
+gulp.task('build', ['assemble'], function () {
+  gulp.start('imagemin');
+});
