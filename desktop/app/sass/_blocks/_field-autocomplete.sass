@@ -1,0 +1,68 @@
+.field-autocomplete
+  position: relative
+
+.field-autocomplete.opened .field-autocomplete__dropdown
+  display: block
+
+.field-autocomplete input
+  padding-right: 40px
+
+.field-autocomplete__dropdown
+  position: absolute
+  top: 58px
+  left: 1px
+  right: 1px
+  display: none
+  max-height: 102px
+  background-color: #fff
+  border-radius: 4px
+  box-shadow: 0 1px 10px 0 rgba(0,44,92,0.28)
+  overflow-y: auto
+  z-index: 2
+
+.field-autocomplete__dropdown ul
+  list-style: none
+  overflow: hidden
+
+.field-autocomplete__dropdown-item
+  display: flex
+  align-items: center
+  padding: 5px 16px
+  font-size: 13px
+  line-height: 16px
+  cursor: default
+  color: #858e98
+
+.field-autocomplete__dropdown-item.active
+  background-color: #F6F7F9
+  font-weight: 600
+  
+.field-autocomplete__dropdown-item .user
+  color: #000
+
+.field-autocomplete.filled .field__reset
+  display: block
+
+.field-autocomplete__arrow
+  position: absolute
+  top: 32px
+  right: 14px
+  display: none
+  width: 12px
+  height: 12px
+  transform: rotate(-90deg)
+
+.field-autocomplete.opened .field-autocomplete__arrow
+  display: block
+
+.field-autocomplete__tags
+  margin-top: 12px
+  margin-left: -4px
+  margin-right: -4px
+  font-size: 0
+
+.field-autocomplete__tags .user-tag
+  margin-left: 4px
+  margin-right: 4px
+  margin-bottom: 8px
+

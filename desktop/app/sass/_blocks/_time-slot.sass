@@ -1,0 +1,43 @@
+.time-slot
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  display: block
+  height: 28px
+
+.time-slot--empty
+  background-color: #fff
+  &::before,
+  &::after
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    display: block
+    background-color: #fff
+    width: 12px
+    height: 2px
+    margin-left: -6px
+    margin-top: -1px
+    border-radius: 10px
+  &::after
+    transform: rotate(90deg)
+
+.time-slot--empty:hover
+  background-color: #007DFF
+  border-radius: 2px
+
+.time-slot--empty:focus
+  background-color: #1D00FE
+  border-radius: 2px
+
+.time-slot--example
+  left: 11.5%
+
+.time-slot--filled:hover
+  background-color: #99A9B9
+  
+.time-slot--filled:focus
+
+

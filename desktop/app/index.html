@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Переговорки</title>
+    <meta name="description" content="">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="shortcut icon" href="img/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon-76x76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon-120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon-152x152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon-180x180.png" sizes="180x180">
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#007DFF">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#007DFF">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#007DFF">
+</head>
+
+<body>
+<header class="header">
+    <div class="container">
+        <div class="logo"></div>
+
+        <a href="event-new.html" class="button button--blue">Создать встречу</a>
+    </div>
+</header>
+
+<div class="diagram">
+    <div class="diagram__body">
+        <div class="diagram__time-line">
+            <div class="diagram__row">
+                <div class="diagram__sidebar">
+                    <div class="calendar" id="calendar">
+                        <div class="calendar__header">
+                            <span class="calendar__header-trigger calendar__header-trigger--left circle-icon circle-icon--left" data-calendar-trigger data-direction="left">
+                                <i>
+                                    <svg width="12" height="12">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-arrow"></use>
+                                    </svg>
+                                </i>
+                            </span>
+                            <span class="calendar__header-date-title" id="calendarTrigger">
+								14 дек · Сегодня
+							</span>
+                            <div class="calendar__header-trigger calendar__header-trigger--right circle-icon" data-calendar-trigger data-direction="right">
+                                <i>
+                                    <svg width="12" height="12">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-arrow"></use>
+                                    </svg>
+                                </i>
+                            </div>
+                        </div>
+                        <div class="calendar__body" id="calendarBody">
+                            <div class="calendar-widget">
+                                <div class="calendar-widget__body" id="calendarWidget" data-quarter="1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="diagram__row-body">
+                    <div class="diagram__cell">
+						<span class="diagram__time diagram__time--passed">
+							8:00
+						</span>
+                    </div>
+                    <div class="diagram__cell">
+						<span class="diagram__time diagram__time--passed">
+							9
+						</span>
+                    </div>
+                    <div class="diagram__cell">
+						<span class="diagram__time diagram__time--passed">
+							10
+						</span>
+                    </div>
+                    <div class="diagram__cell">
+						<span class="diagram__time diagram__time--passed">
+							11
+						</span>
+                        <span class="diagram__time diagram__time--now">
+							11:05
+						</span>
+                    </div>
+                    <div class="diagram__cell">
+						<span class="diagram__time">
+							12
+						</span>
+                    </div>
+                    <div class="diagram__cell">
+						<span class="diagram__time">
+							13
+						</span>
+                    </div>
+                    <div class="diagram__cell">
+						<span class="diagram__time">
+							14
+						</span>
+                    </div>
+                    <div class="diagram__cell">
+						<span class="diagram__time">
+							15
+						</span>
+                    </div>
+                    <div class="diagram__cell">
+						<span class="diagram__time">
+							16
+						</span>
+                    </div>
+                    <div class="diagram__cell">
+						<span class="diagram__time">
+							17
+						</span>
+                    </div>
+                    <div class="diagram__cell">
+						<span class="diagram__time">
+							18
+						</span>
+                    </div>
+                    <div class="diagram__cell">
+						<span class="diagram__time">
+							19
+						</span>
+                    </div>
+                    <div class="diagram__cell">
+						<span class="diagram__time">
+							20
+						</span>
+                    </div>
+                    <div class="diagram__cell">
+						<span class="diagram__time">
+							21
+						</span>
+                    </div>
+                    <div class="diagram__cell">
+                        <span class="diagram__time">
+                            22
+                        </span>
+                    </div>
+                    <div class="diagram__cell">
+                        <span class="diagram__time">
+                            23
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="diagram__content-wrapper">
+            <div class="diagram__content">
+                <div class="diagram__floor">
+                    <div class="diagram__floor-title">
+                        <div class="diagram__row">
+                            <div class="diagram__sidebar">
+                                7 этаж
+                            </div>
+
+                            <div class="diagram__row-body"></div>
+                        </div>
+                    </div>
+
+                    <div class="diagram__room diagram__room--filled">
+                        <div class="diagram__row">
+                            <div class="diagram__sidebar">
+                                <div class="diagram__room-name">
+                                    Ржавый Фред
+                                </div>
+                                <div class="diagram__room-capacity">
+                                    3—6 человек
+                                </div>
+                            </div>
+
+                            <div class="diagram__row-body"></div>
+                        </div>
+                    </div>
+
+                    <div class="diagram__room">
+                        <div class="diagram__row">
+                            <div class="diagram__sidebar">
+                                <div class="diagram__room-name">
+                                    Прачечная
+                                </div>
+                                <div class="diagram__room-capacity">
+                                    до 10 человек
+                                </div>
+                            </div>
+
+                            <div class="diagram__row-body"></div>
+                        </div>
+                    </div>
+
+                    <div class="diagram__room">
+                        <div class="diagram__row">
+                            <div class="diagram__sidebar">
+                                <div class="diagram__room-name">
+                                    Желтый дом
+                                </div>
+                                <div class="diagram__room-capacity">
+                                    до 10 человек
+                                </div>
+                            </div>
+
+                            <div class="diagram__row-body">
+                                <div class="diagram__cell"></div>
+                                <div class="diagram__cell"></div>
+                                <div class="diagram__cell"></div>
+                                <div class="diagram__cell">
+                                    <a class="time-slot time-slot--empty time-slot--example" href="#"></a>
+                                </div>
+                                <div class="diagram__cell">
+                                    <a class="time-slot time-slot--empty" href="#"></a>
+                                </div>
+                                <div class="diagram__cell">
+                                    <a class="time-slot time-slot--empty" href="#"></a>
+                                </div>
+                                <div class="diagram__cell"></div>
+                                <div class="diagram__cell diagram__cell--example">
+                                    <a class="time-slot time-slot--filled" href="#" data-time-slot></a>
+                                </div>
+                                <div class="diagram__cell"></div>
+                                <div class="diagram__cell"></div>
+                                <div class="diagram__cell"></div>
+                                <div class="diagram__cell"></div>
+                                <div class="diagram__cell"></div>
+                                <div class="diagram__cell"></div>
+                                <div class="diagram__cell"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="diagram__room diagram__room--filled">
+                        <div class="diagram__row">
+                            <div class="diagram__sidebar">
+                                <div class="diagram__room-name">
+                                    Оранжевый тюльпан
+                                </div>
+                                <div class="diagram__room-capacity">
+                                    до 10 человек
+                                </div>
+                            </div>
+
+                            <div class="diagram__row-body"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="diagram__floor">
+                    <div class="diagram__floor-title">
+                        <div class="diagram__row">
+                            <div class="diagram__sidebar">
+                                6 этаж
+                            </div>
+
+                            <div class="diagram__row-body"></div>
+                        </div>
+                    </div>
+
+                    <div class="diagram__room">
+                        <div class="diagram__row">
+                            <div class="diagram__sidebar">
+                                <div class="diagram__room-name">
+                                    Джокер
+                                </div>
+                                <div class="diagram__room-capacity">
+                                    3—6 человек
+                                </div>
+                            </div>
+
+                            <div class="diagram__row-body"></div>
+                        </div>
+                    </div>
+
+                    <div class="diagram__room">
+                        <div class="diagram__row">
+                            <div class="diagram__sidebar">
+                                <div class="diagram__room-name">
+                                    Мариванна
+                                </div>
+                                <div class="diagram__room-capacity">
+                                    3—6 человек
+                                </div>
+                            </div>
+
+                            <div class="diagram__row-body"></div>
+                        </div>
+                    </div>
+
+                    <div class="diagram__room">
+                        <div class="diagram__row">
+                            <div class="diagram__sidebar">
+                                <div class="diagram__room-name">
+                                    Тонкий Боб
+                                </div>
+                                <div class="diagram__room-capacity">
+                                    3—6 человек
+                                </div>
+                            </div>
+
+                            <div class="diagram__row-body"></div>
+                        </div>
+                    </div>
+
+                    <div class="diagram__room">
+                        <div class="diagram__row">
+                            <div class="diagram__sidebar">
+                                <div class="diagram__room-name">
+                                    Чёрная вдова
+                                </div>
+                                <div class="diagram__room-capacity">
+                                    3—6 человек
+                                </div>
+                            </div>
+
+                            <div class="diagram__row-body"></div>
+                        </div>
+                    </div>
+
+                    <div class="diagram__room">
+                        <div class="diagram__row">
+                            <div class="diagram__sidebar">
+                                <div class="diagram__room-name">
+                                    Белорусский ликёр
+                                </div>
+                                <div class="diagram__room-capacity">
+                                    3—6 человек
+                                </div>
+                            </div>
+
+                            <div class="diagram__row-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup">
+    <div class="popup__content inform-popup">
+        <i class="inform-popup__icon inform-popup__icon--success"></i>
+        <span class="inform-popup__title">
+            Встреча создана!
+        </span>
+
+        <div class="inform-popup__info">
+            <span class="inform-popup__info-row">
+                14 декабря, 15:00—17:00
+            </span>
+            <span class="inform-popup__info-row">
+                Готем · 4 этаж
+            </span>
+        </div>
+
+        <div class="inform-popup__buttons">
+            <button class="button button--blue">Хорошо</button>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="css/main.min.css">
+<script src="js/common.js"></script>
+</body>
+</html>
