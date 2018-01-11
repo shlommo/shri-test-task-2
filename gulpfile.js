@@ -16,10 +16,8 @@ const babel = require('gulp-babel');
 const webpack = require('gulp-webpack');
 const mocha = require('gulp-mocha');
 
-let platform = 'desktop';
-
 gulp.task('style', function () {
-  gulp.src(`${platform}/app/sass/main.sass`)
+  gulp.src('app/sass/main.sass')
     .pipe(plumber())
     .pipe(sass())
     .pipe(postcss([
@@ -34,16 +32,16 @@ gulp.task('style', function () {
       }),
       mqpacker({sort: true})
     ]))
-    .pipe(gulp.dest(`${platform}/build/css`))
+    .pipe(gulp.dest('build/css'))
     .pipe(server.stream())
     .pipe(minify())
     .pipe(rename('main.min.css'))
-    .pipe(gulp.dest(`${platform}/build/css`))
+    .pipe(gulp.dest('build/css'))
     .pipe(server.stream());
 });
 
 gulp.task('scripts', function () {
-  gulp.src(`${platform}/app/js/common.js`)
+  gulp.src('app/js/common.js')
     .pipe(plumber())
     .pipe(webpack({
       devtool: 'source-map',
@@ -56,14 +54,14 @@ gulp.task('scripts', function () {
         filename: 'common.js'
       }
     }))
-    .pipe(gulp.dest(`${platform}/build/js/`))
+    .pipe(gulp.dest('build/js/'))
     .pipe(server.stream());
 });
 
 require('babel-register');
 gulp.task('test', function () {
   return gulp
-    .src([`${platform}/app/js/**/*.test.js`], { read: false })
+    .src(['app/js/**/*.test.js'], { read: false })
     .pipe(mocha({
       compilers: {
         js: 'babel-register' // Включим поддержку "import/export" в Mocha
@@ -73,52 +71,52 @@ gulp.task('test', function () {
 });
 
 gulp.task('imagemin', ['copy'], function () {
-  gulp.src(`${platform}/build/img/**/*.{jpg,png,gif}`)
+  gulp.src('build/img/**/*.{jpg,png,gif}')
     .pipe(imagemin([
       imagemin.optipng({optimizationLevel: 3}),
       imagemin.jpegtran({progressive: true})
     ]))
-    .pipe(gulp.dest(`${platform}/build/img`));
+    .pipe(gulp.dest('build/img'));
 });
 
 
 gulp.task('copy-html', function () {
-  gulp.src(`${platform}/app/*.html`)
-    .pipe(gulp.dest(`${platform}/build`))
+  gulp.src('app/*.html')
+    .pipe(gulp.dest('build'))
     .pipe(server.stream());
 });
 
 gulp.task('copy', ['copy-html', 'scripts', 'style'], function () {
   gulp.src([
-    `${platform}/app/fonts/**/*.*`,
+    'app/fonts/**/*.*',
   ])
-    .pipe(gulp.dest(`${platform}/build/fonts/`));
+    .pipe(gulp.dest('build/fonts/'));
   gulp.src([
-    `${platform}/app/img/**/*.*`
+    'app/img/**/*.*'
   ])
-    .pipe(gulp.dest(`${platform}/build/img/`));
+    .pipe(gulp.dest('build/img/'));
 });
 
 gulp.task('clean', function () {
-  return del(`${platform}/build`);
+  return del('build');
 });
 
 gulp.task('serve', ['assemble'], function () {
   server.init({
-    server: `./${platform}/build`,
+    server: './build',
     notify: false,
     open: true,
     port: 3501,
     ui: false
   });
 
-  gulp.watch(`${platform}/app/sass/**/*.{scss,sass}`, ['style']);
-  gulp.watch(`${platform}/app/*.html`).on('change', (e) => {
+  gulp.watch('app/sass/**/*.{scss,sass}', ['style']);
+  gulp.watch('app/*.html').on('change', (e) => {
     if (e.type !== 'deleted') {
       gulp.start('copy-html');
     }
   });
-  gulp.watch(`${platform}/app/js/**/*.js`, ['scripts']).on('change', server.reload);
+  gulp.watch('app/js/**/*.js', ['scripts']).on('change', server.reload);
 });
 
 gulp.task('assemble', ['clean'], function () {
@@ -126,13 +124,3 @@ gulp.task('assemble', ['clean'], function () {
 });
 
 gulp.task('build', ['assemble', 'imagemin']);
-
-gulp.task('desktop', function () {
-  platform = 'desktop';
-  gulp.start('serve');
-});
-
-gulp.task('mobile', function () {
-  platform = 'mobile';
-  gulp.start('serve');
-});

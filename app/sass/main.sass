@@ -1,0 +1,82 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*::-webkit-input-placeholder
+  color: #858E98
+  opacity: 1
+
+*:-moz-placeholder
+  color: #858E98
+  opacity: 1
+
+*::-moz-placeholder
+  color: #858E98
+  opacity: 1
+
+*:-ms-input-placeholder
+  color: #858E98
+  opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+  color: #666
+
+body input:required:valid,
+body textarea:required:valid
+  color: #666
+
+html, body
+  height: 100%
+
+body
+  font-size: 16px
+  min-width: 320px
+  position: relative
+  line-height: 1.75
+  font-family: $default-font
+  background-color: #fff
+  overflow-x: hidden
+  opacity: 1
+
+body.modal-is-opened
+  overflow: hidden
+
+.container
+  //width: 1232px
+  margin-left: auto
+  margin-right: auto
+  padding-left: 24px
+  padding-right: 24px
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul
+  margin: 0
+  padding: 0
+
+i svg
+  display: block
+
+@import "_blocks/header"
+@import "_blocks/logo"
+@import "_blocks/button"
+@import "_blocks/diagram"
+@import "_blocks/time-slot"
+@import "_blocks/calendar"
+@import "_blocks/calendar-widget"
+@import "_blocks/circle-icon"
+@import "_blocks/popup"
+@import "_blocks/inform-popup"
+@import "_blocks/event-form"
+@import "_blocks/field"
+@import "_blocks/field-autocomplete"
+@import "_blocks/recommendation-tag"
+@import "_blocks/user"
+@import "_blocks/user-tag"
+@import "_blocks/time-slot-info"
+
+@import "media"

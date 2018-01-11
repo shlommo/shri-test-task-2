@@ -1,0 +1,231 @@
+.diagram
+  height: calc(100vh - 71px)
+  overflow-y: hidden
+  overflow-x: auto
+
+.diagram__body
+  overflow: hidden
+
+.diagram__time-line
+  position: relative
+  height: 46px
+  padding-top: 11px
+  padding-bottom: 11px
+  border-bottom: 1px solid #E9ECEF
+  font-size: 14px
+  box-sizing: border-box
+  z-index: 3
+
+.diagram__content-wrapper
+  position: relative
+  height: calc(100vh - 46px - 71px)
+
+.diagram__content-wrapper::before
+  content: ''
+  display: block
+  position: absolute
+  top: 0
+  left: 245px
+  right: 0
+  height: calc(100vh - 46px - 71px)
+  background-color: #f6f7f9
+  z-index: 1
+
+.diagram__content
+  position: relative
+  height: 100%
+  padding-bottom: 60px
+  overflow-y: auto
+  overflow-x: hidden
+  box-sizing: border-box
+  z-index: 2
+
+.diagram__floor
+  padding-top: 21px
+
+.diagram__row
+  position: relative
+  display: flex
+
+.diagram__time-line .diagram__sidebar
+  padding-left: 0
+
+.diagram__row-body
+  position: relative
+  display: flex
+  flex: 1 0 auto
+  padding-left: 30px
+
+.diagram__cell
+  position: relative
+  width: calc((6600 / 1280) * 1vw)
+  min-width: 66px
+  box-sizing: border-box
+
+.diagram__cell--example
+  width: calc((6600 / 1280) * 2vw)
+  min-width: 132px
+
+.diagram__time
+  display: inline-block
+  vertical-align: top
+  width: 49px
+  height: 20px
+  font-size: 11px
+  font-weight: 600
+  letter-spacing: 0.4px
+  border-radius: 100px
+  text-align: center
+
+.diagram__time--passed
+  color: #858E98
+
+.diagram__time-line .diagram__time
+  position: absolute
+  left: 0
+  top: 2px
+  transform: translateX(-50%)
+  z-index: 2
+
+.diagram__time-line .diagram__cell:last-child::after
+  left: auto
+  right: 0
+  margin-left: auto
+  margin-right: -1px
+
+.diagram__time-line .diagram__time--now
+  left: 35px
+  z-index: 3
+
+.diagram__time--now
+  background-color: #007DFF
+  color: #fff
+
+.diagram__time--now::before
+  content: ''
+  display: block
+  position: absolute
+  top: 20px
+  left: 50%
+  right: 0
+  bottom: 0
+  width: 1px
+  height: calc(100vh - 33px - 71px)
+  transform: translateX(-50%)
+  background-color: #007DFF
+
+.diagram__floor
+  margin-bottom: 7px
+
+.diagram__floor:last-child
+  margin-bottom: 0
+
+.diagram__floor-title
+  margin-bottom: 12px
+
+.diagram__floor-title .diagram__sidebar
+  font-size: 11px
+  line-height: 13px
+  letter-spacing: .4px
+  color: #858E98
+  font-weight: 600
+
+.diagram__sidebar
+  position: relative
+  width: 245px
+  padding-left: 24px
+  box-sizing: border-box
+  flex: 0 0 auto
+
+.diagram__room
+  margin-bottom: 28px
+
+.diagram__room .diagram__row
+  height: 28px
+
+.diagram__floor .diagram__room:last-child
+  margin-bottom: 0
+
+.diagram__room-name
+  font-size: 15px
+  line-height: 17px
+  font-weight: 500
+
+.diagram__room .diagram__room-name
+  margin-top: -4px
+  margin-bottom: 2px
+
+.diagram__room-capacity
+  font-size: 13px
+  line-height: 17px
+
+.diagram__room--focused .diagram__room-name
+  font-weight: 600
+
+.diagram__room:hover .diagram__room-name
+  color: #0070E0
+
+.diagram__room:active .diagram__room-name
+  color: #1D54FE
+
+.diagram__room--filled .diagram__room-name,
+.diagram__room--filled .diagram__room-capacity,
+.diagram__room--filled:hover .diagram__room-name
+  color: #858E98
+
+.diagram__room .diagram__row-body
+  background-color: #d5dfe9
+
+.diagram__add-event
+  position: absolute
+  top: 0
+  height: 28px
+
+.diagram__add-event--example
+  left: 12%
+  right: 1px
+
+.diagram__cell-grid
+  display: flex
+
+.diagram__cell-grid .diagram__cell::before
+  content: ''
+  display: block
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  width: 1px
+  margin-left: -1px
+  height: calc(100vh - 46px - 71px)
+  border-left: 1px solid rgba(19,100,205,.1)
+  z-index: 1
+
+.diagram__cell-grid .diagram__sidebar::before
+  content: ''
+  position: absolute
+  right: 0
+  top: 0
+  width: 1px
+  height: calc(100vh - 46px - 71px)
+  background-color: #E9ECEF
+
+.room-name-tag
+  position: absolute
+  top: 0
+  left: 12px
+  display: none
+  padding: 5px 8px
+  background-color: #fff
+  box-shadow: 0 1px 8px 0 rgba(0,44,92,0.28)
+  border-radius: 4px
+  font-size: 11px
+  line-height: 13px
+  z-index: 5
+
+.room-name-tag.filled
+  color: #858e98
+
+.diagram__room-capacity
+  font-size: 13px
+  line-height: 17px

@@ -4,11 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "eslintDesktop": "eslint desktop/app/js/",
-    "eslintMobile": "eslint mobile/app/js/",
+    "test": "eslint app/js/",
     "build": "gulp build",
-    "desktop": "gulp desktop",
-    "mobile": "gulp mobile"
+    "start": "gulp serve"
   },
   "author": "",
   "license": "MIT",

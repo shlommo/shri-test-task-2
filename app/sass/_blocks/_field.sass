@@ -1,0 +1,88 @@
+.field
+  position: relative
+  
+.field__label
+  display: block
+  margin-bottom: 4px
+  font-size: 13px
+  line-height: 16px
+  color: #000
+  font-weight: 600
+
+.field input
+  display: block
+  width: 100%
+  padding: 10px
+  font-family: $default-font
+  font-size: 13px
+  letter-spacing: 0.47px
+  color: #000
+  box-sizing: border-box
+  background-color: #fff
+  border: 2px solid #E9ECEF
+  border-radius: 4px
+
+.field input:focus
+  outline: none
+  border-color: #007DFF
+
+.field.filled .field__reset
+  display: block
+
+.field:hover input
+  border-color: #007DFF
+
+.field__reset
+  position: absolute
+  bottom: 0px
+  right: 0px
+  display: none
+  width: 37px
+  height: 37px
+  font-size: 0
+  opacity: .3
+
+.field__reset:focus
+  outline: none
+
+.field__reset i
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  display: block
+  width: 12px
+  height: 12px
+
+.field input:hover ~ .field__reset,
+.field__reset:hover
+  opacity: 1
+
+.field__reset svg
+  display: block
+
+.field--date input
+  padding-right: 30px
+
+.field__trigger
+  position: absolute
+  right: 0
+  bottom: 0
+  display: none
+  width: 32px
+  height: 38px
+  border: none
+  cursor: pointer
+  background-color: transparent
+  background-repeat: no-repeat
+  background-position: 50% 50%
+  z-index: 2
+  &:focus
+    outline: none
+
+.field--icon .field__trigger
+  display: block
+
+.field--date .field__trigger
+  background-image: url("../img/icons/calendar.svg")
+  background-size: 12px 12px
