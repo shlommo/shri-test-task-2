@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Переговорки</title>
+    <meta name="description" content="">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="shortcut icon" href="img/favicon/favicon.png">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon-76x76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon-120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon-152x152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon-180x180.png" sizes="180x180">
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#007DFF">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#007DFF">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#007DFF">
+</head>
+
+<body>
+<header class="header">
+    <div class="logo"></div>
+</header>
+
+<div class="event-form event-form--edit">
+    <div class="event-form__header">
+        <h3 class="event-form__title">Редактирование встречи</h3>
+
+        <a href="#" class="event-form__close circle-icon">
+            <i>
+                <svg width="10" height="10">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                </svg>
+            </i>
+        </a>
+    </div>
+
+    <div class="event-form__body">
+        <div class="event-form__col">
+            <div class="field">
+                <label class="field__label" for="fieldInputOne">Тема</label>
+                <input type="text" name="fieldInput" id="fieldInputOne" placeholder="О чём будете говорить?" value="Тестовое задание в ШРИ">
+                <a href="#" class="field__reset">
+                    <i>
+                        <svg width="12" height="12">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                        </svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+
+        <div class="event-form__col event-form__col--flex">
+            <div class="event-form__col-date">
+                <div class="field field--icon field--date" id="date">
+                    <label class="field__label" for="fieldInputDate">Дата</label>
+                    <input type="text" name="fieldInput" id="fieldInputDate" data-input>
+
+                    <button class="field__trigger" id="dateTrigger" data-toggle></button>
+                </div>
+            </div>
+
+            <div class="event-form__col-time">
+                <div class="field">
+                    <label class="field__label" for="fieldInputTimeStart">Начало</label>
+                    <input type="text" name="fieldInput" id="fieldInputTimeStart">
+                </div>
+
+                <i class="event-form__col-time-separator"></i>
+
+                <div class="field">
+                    <label class="field__label" for="eventTimeEnd">Конец</label>
+                    <input type="text" name="fieldInput" id="eventTimeEnd">
+                </div>
+            </div>
+        </div>
+
+        <div class="event-form__col">
+            <div class="field-autocomplete" data-autocomplete>
+                <div class="field">
+                    <label class="field__label" for="fieldInputFive">Участники</label>
+                    <input type="text" name="fieldInput" id="fieldInputFive" placeholder="Например, Тор Одинович" data-autocomplete-input>
+
+                    <a href="#" class="field__reset">
+                        <i>
+                            <svg width="12" height="12">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </div>
+
+                <i class="field-autocomplete__arrow">
+                    <svg width="12" height="12">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-arrow"></use>
+                    </svg>
+                </i>
+
+                <div class="field-autocomplete__dropdown">
+                    <ul>
+                        <li class="field-autocomplete__dropdown-item">
+                            <div class="user">
+                                <div class="user__icon">
+                                    <img src="img/users/1.jpg" alt="">
+                                </div>
+                                Лекс Лютер
+                            </div>
+                            &nbsp;·&nbsp;7 этаж
+                        </li>
+
+                        <li class="field-autocomplete__dropdown-item active">
+                            <div class="user">
+                                <div class="user__icon">
+                                    <img src="img/users/2.jpg" alt="">
+                                </div>
+                                Томас Андерсон
+                            </div>
+                            &nbsp;·&nbsp;2 этаж
+                        </li>
+
+                        <li class="field-autocomplete__dropdown-item">
+                            <div class="user">
+                                <div class="user__icon">
+                                    <img src="img/users/3.jpg" alt="">
+                                </div>
+                                Дарт Вейдер
+                            </div>
+                            &nbsp;·&nbsp;7 этаж
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="field-autocomplete__tags">
+                    <div class="user-tag">
+                        <div class="user">
+                            <div class="user__icon">
+                                <img src="img/users/1.jpg" alt="">
+                            </div>
+                            Лекс Лютер
+                        </div>
+
+                        <a class="user-tag__icon" href="#">
+                            <i>
+                                <svg width="10" height="10">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </div>
+
+                    <div class="user-tag">
+                        <div class="user">
+                            <div class="user__icon">
+                                <img src="img/users/2.jpg" alt="">
+                            </div>
+                            Томас Андерсон
+                        </div>
+
+                        <a class="user-tag__icon" href="#">
+                            <i>
+                                <svg width="10" height="10">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </div>
+
+                    <div class="user-tag">
+                        <div class="user">
+                            <div class="user__icon">
+                                <img src="img/users/3.jpg" alt="">
+                            </div>
+                            Дарт Вейдер
+                        </div>
+
+                        <a class="user-tag__icon" href="#">
+                            <i>
+                                <svg width="10" height="10">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="event-form__col">
+            <div class="field">
+                <span class="field__label">Ваша переговорка</span>
+
+                <div class="recommendation-tag recommendation-tag--selected">
+                    <span class="recommendation-tag__time">
+                        16:00—16:30
+                    </span>
+                    <span class="recommendation-tag__room">
+                        Готем · 4 этаж
+                    </span>
+                    <button class="recommendation-tag__delete">
+                        <i>
+                            <svg width="10" height="10">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use>
+                            </svg>
+                        </i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="event-form__footer">
+        <button class="button button--gray">Отмена</button>
+
+        <div class="event-form__delete-btn">
+            <button class="button button--gray" id="deleteEventPopupTrigger">Удалить встречу</button>
+        </div>
+        <button class="button button--blue">Сохранить</button>
+    </div>
+</div>
+
+
+<div class="popup" id="deleteEventPopup">
+    <div class="popup__content inform-popup">
+        <i class="inform-popup__icon inform-popup__icon--can-not"></i>
+        <span class="inform-popup__title">
+            Встреча будет
+            удалена&nbsp;безвозвратно
+        </span>
+
+        <div class="inform-popup__buttons">
+            <button class="button button--gray" data-close>Отмена</button>
+            <button class="button button--gray">Удалить</button>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="css/main.min.css">
+<script src="js/common.js"></script>
+</body>
+</html>
