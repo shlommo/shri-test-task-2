@@ -1,4 +1,4 @@
-import { addListenerMulti, removeListenerMulti } from './helpers';
+import {addListenerMulti, removeListenerMulti} from './helpers';
 
 export default (selector, callback) => {
   const outsideClickListener = (event) => {

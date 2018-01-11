@@ -4,7 +4,7 @@ import openCalendar from './openCalendar';
 import showPopup from './showPopup';
 import renderTimeSlotInfoView from './renderTimeSlotInfoView';
 import activateFieldAutocomplete from './activateFieldAutocomplete';
-import renderCalendarWidget from './renderCalendarWidget';
+import RenderCalendar from './renderCalendar';
 import activateRoomName from './activateRoomName';
 
 createSvgSprite();
@@ -19,6 +19,6 @@ renderTimeSlotInfoView();
 
 activateFieldAutocomplete();
 
-renderCalendarWidget('calendarWidget');
+RenderCalendar.render();
 
 activateRoomName();

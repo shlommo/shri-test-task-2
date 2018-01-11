@@ -70,9 +70,9 @@
 	
 	var _activateFieldAutocomplete2 = _interopRequireDefault(_activateFieldAutocomplete);
 	
-	var _renderCalendarWidget = __webpack_require__(11);
+	var _renderCalendar = __webpack_require__(11);
 	
-	var _renderCalendarWidget2 = _interopRequireDefault(_renderCalendarWidget);
+	var _renderCalendar2 = _interopRequireDefault(_renderCalendar);
 	
 	var _activateRoomName = __webpack_require__(12);
 	
@@ -92,7 +92,7 @@
 	
 	(0, _activateFieldAutocomplete2.default)();
 	
-	(0, _renderCalendarWidget2.default)('calendarWidget');
+	_renderCalendar2.default.render();
 	
 	(0, _activateRoomName2.default)();
 
@@ -174,13 +174,14 @@
 	exports.default = function () {
 	  var today = new Date();
 	  var afterThirtyMinutes = new Date(today.getTime() + 30 * 60 * 1000);
+	  /* eslint-disable */
 	  var eventDate = new _flatpickr2.default('#date', {
 	    locale: _ru.Russian,
 	    altInput: true,
 	    altFormat: 'j F, Y',
 	    defaultDate: today,
 	    wrap: true,
-	    disableMobile: "true"
+	    disableMobile: 'true'
 	  });
 	  var eventTimeStart = new _flatpickr2.default('#fieldInputTimeStart', {
 	    enableTime: true,
@@ -188,7 +189,6 @@
 	    dateFormat: 'H:i',
 	    time_24hr: true,
 	    defaultDate: today
-	    // disableMobile: "true"
 	  });
 	  var eventTimeEnd = new _flatpickr2.default('#eventTimeEnd', {
 	    enableTime: true,
@@ -196,8 +196,8 @@
 	    dateFormat: 'H:i',
 	    time_24hr: true,
 	    defaultDate: afterThirtyMinutes
-	    // disableMobile: "true"
 	  });
+	  /* eslint-enable */
 	};
 
 /***/ }),
@@ -2138,12 +2138,12 @@
 	
 	var addListenerMulti = function addListenerMulti(el, s, fn) {
 	  s.split(' ').forEach(function (e) {
-	    return el.addEventListener(e, fn, false);
+	    el.addEventListener(e, fn, false);
 	  });
 	};
 	var removeListenerMulti = function removeListenerMulti(el, s, fn) {
 	  s.split(' ').forEach(function (e) {
-	    return el.removeEventListener(e, fn, false);
+	    el.removeEventListener(e, fn, false);
 	  });
 	};
 	
@@ -2356,175 +2356,203 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _helpers = __webpack_require__(7);
 	
-	var monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
-	var monthNamesShortcuts = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var getMonth = function getMonth(year, month) {
-	  var d = new Date(year, month);
-	  var monthShortName = monthNamesShortcuts[month];
-	  var qurrentDate = new Date();
-	  var today = qurrentDate.getDate();
-	  var qurrentMonth = qurrentDate.getMonth();
+	var RenderCalendar = function () {
+	  function RenderCalendar() {
+	    _classCallCheck(this, RenderCalendar);
 	
-	  var daysView = '';
-	
-	  for (var i = 0; i < (0, _helpers.getDay)(d); i++) {
-	    daysView += '<div class="month__day empty"></div>';
+	    this.calendarWidget = document.getElementById('calendarWidget');
+	    this.calendar = document.getElementById('calendar');
+	    this._monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+	    this._monthNamesShortcuts = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
 	  }
 	
-	  while (d.getMonth() === month) {
-	    var todayClass = '';
-	    if (d.getDate() === today && qurrentMonth === month) {
-	      todayClass = 'today';
-	    }
+	  _createClass(RenderCalendar, [{
+	    key: 'getMonth',
+	    value: function getMonth(year, month) {
+	      var d = new Date(year, month);
+	      var monthShortName = this._monthNamesShortcuts[month];
+	      var qurrentDate = new Date();
+	      var today = qurrentDate.getDate();
+	      var qurrentMonth = qurrentDate.getMonth();
 	
-	    daysView += '<div class="month__day ' + todayClass + '" data-shortcut="' + monthShortName + '">' + d.getDate() + '</div>';
+	      var daysView = '';
 	
-	    d.setDate(d.getDate() + 1);
-	  }
+	      for (var i = 0; i < (0, _helpers.getDay)(d); i++) {
+	        daysView += '<div class="month__day empty"></div>';
+	      }
 	
-	  if ((0, _helpers.getDay)(d) !== 0) {
-	    for (var _i = (0, _helpers.getDay)(d); _i < 7; _i++) {
-	      daysView += '<div class="month__day empty"></div>';
-	    }
-	  }
-	
-	  var monthView = '<div class="calendar-widget__month month">\n                        <div class="month__name">' + monthNames[month] + '</div>\n                        <div class="month__week">\n                            <div class="month__day">\u041F\u043D</div>\n                            <div class="month__day">\u0412\u0442</div>\n                            <div class="month__day">\u0421\u0440</div>\n                            <div class="month__day">\u0427\u0442</div>\n                            <div class="month__day">\u041F\u0442</div>\n                            <div class="month__day">\u0421\u0431</div>\n                            <div class="month__day">\u0412\u0441</div>\n                        </div>\n\n                        <div class="month__days">\n                            ' + daysView + '\n                        </div>\n                    </div>';
-	
-	  return monthView;
-	};
-	
-	var moveCalendarWidget = function moveCalendarWidget(id) {
-	  var yearQuarter = calendarWidget.getAttribute('data-quarter');
-	
-	  calendarWidget.style.transform = 'translateX(-' + 100 * (+yearQuarter - 1) + '%)';
-	};
-	
-	var activateCalendarSlide = function activateCalendarSlide() {
-	  var calendarTriggerArr = calendar.querySelectorAll('[data-calendar-trigger]');
-	  var yearQuarter = calendarWidget.getAttribute('data-quarter');
-	
-	  var _iteratorNormalCompletion = true;
-	  var _didIteratorError = false;
-	  var _iteratorError = undefined;
-	
-	  try {
-	    var _loop = function _loop() {
-	      var calendarTrigger = _step.value;
-	
-	      calendarTrigger.addEventListener('click', function () {
-	        var calendarTriggerDirection = calendarTrigger.getAttribute('data-direction');
-	        var windowWidth = window.innerWidth;
-	        var quarterMaxValue = void 0;
-	
-	        if (!calendar.classList.contains('opened')) {
-	          return false;
+	      while (d.getMonth() === month) {
+	        var todayClass = '';
+	        if (d.getDate() === today && qurrentMonth === month) {
+	          todayClass = 'today';
 	        }
 	
-	        quarterMaxValue = windowWidth < 1280 ? 12 : 4;
+	        daysView += '<div class="month__day ' + todayClass + '" data-shortcut="' + monthShortName + '">' + d.getDate() + '</div>';
 	
-	        if (calendarTriggerDirection === 'left' && yearQuarter > 1) {
-	          --yearQuarter;
-	          calendarWidget.setAttribute('data-quarter', yearQuarter);
-	          moveCalendarWidget();
-	        } else if (calendarTriggerDirection === 'right' && yearQuarter < quarterMaxValue) {
-	          yearQuarter++;
-	          calendarWidget.setAttribute('data-quarter', yearQuarter);
-	          moveCalendarWidget();
+	        d.setDate(d.getDate() + 1);
+	      }
+	
+	      if ((0, _helpers.getDay)(d) !== 0) {
+	        for (var _i = (0, _helpers.getDay)(d); _i < 7; _i++) {
+	          daysView += '<div class="month__day empty"></div>';
 	        }
-	        return true;
-	      });
-	    };
-	
-	    for (var _iterator = calendarTriggerArr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	      _loop();
-	    }
-	  } catch (err) {
-	    _didIteratorError = true;
-	    _iteratorError = err;
-	  } finally {
-	    try {
-	      if (!_iteratorNormalCompletion && _iterator.return) {
-	        _iterator.return();
 	      }
-	    } finally {
-	      if (_didIteratorError) {
-	        throw _iteratorError;
+	
+	      var monthView = '<div class="calendar-widget__month month">\n                          <div class="month__name">' + this._monthNames[month] + '</div>\n                          <div class="month__week">\n                              <div class="month__day">\u041F\u043D</div>\n                              <div class="month__day">\u0412\u0442</div>\n                              <div class="month__day">\u0421\u0440</div>\n                              <div class="month__day">\u0427\u0442</div>\n                              <div class="month__day">\u041F\u0442</div>\n                              <div class="month__day">\u0421\u0431</div>\n                              <div class="month__day">\u0412\u0441</div>\n                          </div>\n  \n                          <div class="month__days">\n                              ' + daysView + '\n                          </div>\n                      </div>';
+	
+	      return monthView;
+	    }
+	  }, {
+	    key: 'moveCalendarWidget',
+	    value: function moveCalendarWidget() {
+	      var yearQuarter = this.calendarWidget.getAttribute('data-quarter');
+	
+	      this.calendarWidget.style.transform = 'translateX(-' + 100 * (+yearQuarter - 1) + '%)';
+	    }
+	  }, {
+	    key: 'activateCalendarSlide',
+	    value: function activateCalendarSlide() {
+	      var _this = this;
+	
+	      var calendarTriggerArr = this.calendar.querySelectorAll('[data-calendar-trigger]');
+	      var self = this;
+	      var yearQuarter = this.calendarWidget.getAttribute('data-quarter');
+	
+	      var _iteratorNormalCompletion = true;
+	      var _didIteratorError = false;
+	      var _iteratorError = undefined;
+	
+	      try {
+	        var _loop = function _loop() {
+	          var calendarTrigger = _step.value;
+	
+	          calendarTrigger.addEventListener('click', function () {
+	            var calendarTriggerDirection = calendarTrigger.getAttribute('data-direction');
+	            var windowWidth = window.innerWidth;
+	            var quarterMaxValue = void 0;
+	
+	            if (!_this.calendar.classList.contains('opened')) {
+	              return false;
+	            }
+	
+	            quarterMaxValue = windowWidth < 1280 ? 12 : 4;
+	
+	            if (calendarTriggerDirection === 'left' && yearQuarter > 1) {
+	              --yearQuarter;
+	              _this.calendarWidget.setAttribute('data-quarter', yearQuarter);
+	              self.moveCalendarWidget();
+	            } else if (calendarTriggerDirection === 'right' && yearQuarter < quarterMaxValue) {
+	              yearQuarter++;
+	              _this.calendarWidget.setAttribute('data-quarter', yearQuarter);
+	              self.moveCalendarWidget();
+	            }
+	            return true;
+	          });
+	        };
+	
+	        for (var _iterator = calendarTriggerArr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	          _loop();
+	        }
+	      } catch (err) {
+	        _didIteratorError = true;
+	        _iteratorError = err;
+	      } finally {
+	        try {
+	          if (!_iteratorNormalCompletion && _iterator.return) {
+	            _iterator.return();
+	          }
+	        } finally {
+	          if (_didIteratorError) {
+	            throw _iteratorError;
+	          }
+	        }
 	      }
 	    }
-	  }
-	};
+	  }, {
+	    key: 'dayHandler',
+	    value: function dayHandler() {
+	      var _this2 = this;
 	
-	var dayHandler = function dayHandler() {
-	  var dayArr = calendarWidget.querySelectorAll('.month__days .month__day:not(.empty)');
-	  var calendarHeaderTitle = calendar.querySelector('.calendar__header-date-title');
+	      var dayArr = this.calendarWidget.querySelectorAll('.month__days .month__day:not(.empty)');
+	      var calendarHeaderTitle = this.calendar.querySelector('.calendar__header-date-title');
 	
-	  var _iteratorNormalCompletion2 = true;
-	  var _didIteratorError2 = false;
-	  var _iteratorError2 = undefined;
+	      var _iteratorNormalCompletion2 = true;
+	      var _didIteratorError2 = false;
+	      var _iteratorError2 = undefined;
 	
-	  try {
-	    var _loop2 = function _loop2() {
-	      var day = _step2.value;
+	      try {
+	        var _loop2 = function _loop2() {
+	          var day = _step2.value;
 	
-	      var month = day.getAttribute('data-shortcut');
+	          var month = day.getAttribute('data-shortcut');
 	
-	      day.addEventListener('click', function () {
-	        calendarWidget.querySelector('.month__day.today').classList.remove('today');
-	        day.classList.add('today');
-	        calendarHeaderTitle.innerHTML = day.innerHTML + ' ' + month;
-	      });
-	    };
+	          day.addEventListener('click', function () {
+	            _this2.calendarWidget.querySelector('.month__day.today').classList.remove('today');
+	            day.classList.add('today');
+	            calendarHeaderTitle.innerHTML = day.innerHTML + ' ' + month;
+	          });
+	        };
 	
-	    for (var _iterator2 = dayArr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	      _loop2();
-	    }
-	  } catch (err) {
-	    _didIteratorError2 = true;
-	    _iteratorError2 = err;
-	  } finally {
-	    try {
-	      if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	        _iterator2.return();
+	        for (var _iterator2 = dayArr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	          _loop2();
+	        }
+	      } catch (err) {
+	        _didIteratorError2 = true;
+	        _iteratorError2 = err;
+	      } finally {
+	        try {
+	          if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	            _iterator2.return();
+	          }
+	        } finally {
+	          if (_didIteratorError2) {
+	            throw _iteratorError2;
+	          }
+	        }
 	      }
-	    } finally {
-	      if (_didIteratorError2) {
-	        throw _iteratorError2;
-	      }
 	    }
-	  }
-	};
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var currentDate = new Date();
+	      var currentDaY = new Date().getDate();
+	      var currentYear = currentDate.getFullYear();
+	      var currentMonth = currentDate.getMonth() + 1;
 	
-	exports.default = function (calendarWidgetId) {
-	  var calendarWidget = document.getElementById(calendarWidgetId);
-	  var currentDate = new Date();
-	  var currentDaY = new Date().getDate();
-	  var currentYear = currentDate.getFullYear();
-	  var currentMonth = currentDate.getMonth() + 1;
-	  var calendar = document.getElementById('calendar');
+	      if (this.calendar === null) {
+	        return false;
+	      }
 	
-	  if (calendar === null) {
-	    return false;
-	  }
-	  var calendarHeaderTitle = calendar.querySelector('.calendar__header-date-title');
+	      var calendarHeaderTitle = this.calendar.querySelector('.calendar__header-date-title');
+	      calendarHeaderTitle.innerHTML = currentDaY + ' ' + this._monthNamesShortcuts[currentMonth - 1] + ' \xB7 \u0421\u0435\u0433\u043E\u0434\u043D\u044F';
 	
-	  calendarHeaderTitle.innerHTML = currentDaY + ' ' + monthNamesShortcuts[currentMonth - 1] + ' \xB7 \u0421\u0435\u0433\u043E\u0434\u043D\u044F';
+	      for (var i = 0; i <= 11; i++) {
+	        var monthView = this.getMonth(currentYear, i);
+	        var monthViewNode = (0, _helpers.getNodeFromMarkup)(monthView);
 	
-	  for (var i = 0; i <= 11; i++) {
-	    var monthView = getMonth(currentYear, i);
-	    var monthViewNode = (0, _helpers.getNodeFromMarkup)(monthView);
+	        this.calendarWidget.appendChild(monthViewNode);
+	      }
 	
-	    calendarWidget.appendChild(monthViewNode);
-	  }
+	      this.activateCalendarSlide();
 	
-	  activateCalendarSlide('calendar', calendarWidgetId);
+	      this.moveCalendarWidget();
 	
-	  moveCalendarWidget(calendarWidgetId);
+	      this.dayHandler();
 	
-	  dayHandler();
-	};
+	      return true;
+	    }
+	  }]);
+	
+	  return RenderCalendar;
+	}();
+	
+	exports.default = new RenderCalendar();
 
 /***/ }),
 /* 12 */
@@ -2541,7 +2569,6 @@
 	exports.default = function () {
 	  var diagramBody = document.querySelector('.diagram__body');
 	  var diagramBodyCnt = document.querySelector('.diagram__body-cnt');
-	  var body = document.querySelector('body');
 	
 	  if (diagramBody === null) {
 	    return;
