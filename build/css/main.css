@@ -1308,11 +1308,14 @@ i svg {
   vertical-align: top;
   width: 49px;
   height: 20px;
+  padding-top: 4px;
   font-size: 11px;
+  line-height: 1;
   font-weight: 600;
   letter-spacing: 0.4px;
   border-radius: 100px;
-  text-align: center; }
+  text-align: center;
+  box-sizing: border-box; }
 
 .diagram__time--passed {
   color: #858E98; }
@@ -2243,6 +2246,7 @@ i svg {
     display: block;
     height: 13px;
     line-height: 13px;
+    padding-top: 0;
     letter-spacing: 0.4px; }
 
   .diagram__time-line .diagram__time {
