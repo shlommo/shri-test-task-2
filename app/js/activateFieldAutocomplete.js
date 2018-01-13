@@ -5,7 +5,7 @@ import {addListenerMulti} from './helpers';
 export default () => {
   const fieldAutocompleteArr = document.querySelectorAll('[data-autocomplete]');
 
-  for (let fieldAutocomplete of fieldAutocompleteArr) {
+  for (let fieldAutocomplete of Array.from(fieldAutocompleteArr)) {
     const fieldAutocompleteInput = fieldAutocomplete.querySelector('[data-autocomplete-input]');
 
     const fieldAutocompleteInputHandler = () => {

@@ -2207,8 +2207,6 @@
 	    value: true
 	});
 
-	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
 	var _helpers = __webpack_require__(7);
 
 	var _hideOnClickOutside = __webpack_require__(6);
@@ -2228,9 +2226,7 @@
 
 	    try {
 	        var _loop = function _loop() {
-	            var _step$value = _slicedToArray(_step.value, 2),
-	                key = _step$value[0],
-	                timeSlot = _step$value[1];
+	            var timeSlot = _step.value;
 
 	            timeSlot.addEventListener('click', function (event) {
 	                event.preventDefault();
@@ -2271,7 +2267,7 @@
 	            });
 	        };
 
-	        for (var _iterator = Object.entries(timeSlotArr)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	        for (var _iterator = Array.from(timeSlotArr)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	            _loop();
 	        }
 	    } catch (err) {
@@ -2331,7 +2327,7 @@
 	      (0, _helpers.addListenerMulti)(fieldAutocompleteInput, 'click touchstart', fieldAutocompleteInputHandler);
 	    };
 
-	    for (var _iterator = fieldAutocompleteArr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	    for (var _iterator = Array.from(fieldAutocompleteArr)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	      _loop();
 	    }
 	  } catch (err) {
@@ -2359,8 +2355,6 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-
-	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -2436,9 +2430,7 @@
 
 	      try {
 	        var _loop = function _loop() {
-	          var _step$value = _slicedToArray(_step.value, 2),
-	              key = _step$value[0],
-	              calendarTrigger = _step$value[1];
+	          var calendarTrigger = _step.value;
 
 	          calendarTrigger.addEventListener('click', function () {
 	            var calendarTriggerDirection = calendarTrigger.getAttribute('data-direction');
@@ -2464,7 +2456,7 @@
 	          });
 	        };
 
-	        for (var _iterator = Object.entries(calendarTriggerArr)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	        for (var _iterator = Array.from(calendarTriggerArr)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	          _loop();
 	        }
 	      } catch (err) {
@@ -2496,9 +2488,7 @@
 
 	      try {
 	        var _loop2 = function _loop2() {
-	          var _step2$value = _slicedToArray(_step2.value, 2),
-	              key = _step2$value[0],
-	              day = _step2$value[1];
+	          var day = _step2.value;
 
 	          var month = day.getAttribute('data-shortcut');
 
@@ -2509,7 +2499,7 @@
 	          });
 	        };
 
-	        for (var _iterator2 = Object.entries(dayArr)[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	        for (var _iterator2 = Array.from(dayArr)[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	          _loop2();
 	        }
 	      } catch (err) {
@@ -2574,8 +2564,6 @@
 	  value: true
 	});
 
-	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
 	var _helpers = __webpack_require__(7);
 
 	exports.default = function () {
@@ -2592,10 +2580,8 @@
 	  var _iteratorError = undefined;
 
 	  try {
-	    for (var _iterator = Object.entries(diagramRoomArr)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	      var _step$value = _slicedToArray(_step.value, 2),
-	          key = _step$value[0],
-	          diagramRoom = _step$value[1];
+	    for (var _iterator = Array.from(diagramRoomArr)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	      var diagramRoom = _step.value;
 
 	      var diagramRoomName = diagramRoom.querySelector('.diagram__room-name');
 	      var roomNameTag = '<div class="room-name-tag">' + diagramRoomName.innerHTML + '</div>';
@@ -2632,10 +2618,8 @@
 	      var _iteratorError2 = undefined;
 
 	      try {
-	        for (var _iterator2 = Object.entries(roomNameTagArr)[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	          var _step2$value = _slicedToArray(_step2.value, 2),
-	              key = _step2$value[0],
-	              roomNameTag = _step2$value[1];
+	        for (var _iterator2 = Array.from(roomNameTagArr)[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	          var roomNameTag = _step2.value;
 
 	          roomNameTag.classList.add('taged');
 	          roomNameTag.style.transform = 'translateX(' + (-1 * diagramRowBodyLeftCoords + 180) + 'px)';
@@ -2660,12 +2644,10 @@
 	      var _iteratorError3 = undefined;
 
 	      try {
-	        for (var _iterator3 = Object.entries(roomNameTagArr)[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-	          var _step3$value = _slicedToArray(_step3.value, 2),
-	              key = _step3$value[0],
-	              roomNameTag = _step3$value[1];
+	        for (var _iterator3 = Array.from(roomNameTagArr)[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+	          var _roomNameTag = _step3.value;
 
-	          roomNameTag.classList.remove('taged');
+	          _roomNameTag.classList.remove('taged');
 	        }
 	      } catch (err) {
 	        _didIteratorError3 = true;

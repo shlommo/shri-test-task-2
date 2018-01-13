@@ -33,7 +33,7 @@ const timeSlotInfoTemplate = `<div class="time-slot-info" id="timeSlotInfoModal"
 </div>`;
 
 export default () => {
-  for ( let [key, timeSlot] of Object.entries(timeSlotArr) ) {
+  for ( let timeSlot of Array.from(timeSlotArr) ) {
     timeSlot.addEventListener('click', (event) => {
       event.preventDefault();
 

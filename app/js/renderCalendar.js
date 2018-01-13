@@ -69,7 +69,7 @@ class RenderCalendar {
     const self = this;
     let yearQuarter = this.calendarWidget.getAttribute('data-quarter');
 
-    for (let [key, calendarTrigger] of Object.entries(calendarTriggerArr)) {
+    for (let calendarTrigger of Array.from(calendarTriggerArr)) {
       calendarTrigger.addEventListener('click', () => {
         const calendarTriggerDirection = calendarTrigger.getAttribute('data-direction');
         const windowWidth = window.innerWidth;
@@ -99,7 +99,7 @@ class RenderCalendar {
     const dayArr = this.calendarWidget.querySelectorAll('.month__days .month__day:not(.empty)');
     const calendarHeaderTitle = this.calendar.querySelector('.calendar__header-date-title');
 
-    for (let [key, day] of Object.entries(dayArr)) {
+    for (let day of Array.from(dayArr)) {
       const month = day.getAttribute('data-shortcut');
 
       day.addEventListener('click', () => {

@@ -9,7 +9,7 @@ export default () => {
   }
   const diagramRoomArr = diagramBodyCnt.querySelectorAll('.diagram__room');
 
-  for (let [key, diagramRoom] of Object.entries(diagramRoomArr)) {
+  for (let diagramRoom of Array.from(diagramRoomArr)) {
     const diagramRoomName = diagramRoom.querySelector('.diagram__room-name');
     const roomNameTag = `<div class="room-name-tag">${diagramRoomName.innerHTML}</div>`;
     const roomNameTagNode = getNodeFromMarkup(roomNameTag);
@@ -26,12 +26,12 @@ export default () => {
     const diagramRowBodyLeftCoords = getCoords(diagramRowBody).left;
 
     if (elCoordsLeft > 180) {
-      for (let [key, roomNameTag] of Object.entries(roomNameTagArr)) {
+      for (let roomNameTag of Array.from(roomNameTagArr)) {
         roomNameTag.classList.add('taged');
         roomNameTag.style.transform = `translateX(${-1 * diagramRowBodyLeftCoords + 180}px)`;
       }
     } else {
-      for (let [key, roomNameTag] of Object.entries(roomNameTagArr)) {
+      for (let roomNameTag of Array.from(roomNameTagArr)) {
         roomNameTag.classList.remove('taged');
       }
     }
