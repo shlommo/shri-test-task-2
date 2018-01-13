@@ -1,41 +1,41 @@
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-/******/
+
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-/******/
+
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-/******/
+
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
 /******/ 			loaded: false
 /******/ 		};
-/******/
+
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
-/******/
+
+
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-/******/
+
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-/******/
+
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-/******/
+
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
 /******/ })
@@ -45,55 +45,55 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	var _createSvgSprite = __webpack_require__(1);
-	
+
 	var _createSvgSprite2 = _interopRequireDefault(_createSvgSprite);
-	
+
 	var _flatpickrInit = __webpack_require__(2);
-	
+
 	var _flatpickrInit2 = _interopRequireDefault(_flatpickrInit);
-	
+
 	var _openCalendar = __webpack_require__(5);
-	
+
 	var _openCalendar2 = _interopRequireDefault(_openCalendar);
-	
+
 	var _showPopup = __webpack_require__(8);
-	
+
 	var _showPopup2 = _interopRequireDefault(_showPopup);
-	
+
 	var _renderTimeSlotInfoView = __webpack_require__(9);
-	
+
 	var _renderTimeSlotInfoView2 = _interopRequireDefault(_renderTimeSlotInfoView);
-	
+
 	var _activateFieldAutocomplete = __webpack_require__(10);
-	
+
 	var _activateFieldAutocomplete2 = _interopRequireDefault(_activateFieldAutocomplete);
-	
+
 	var _renderCalendar = __webpack_require__(11);
-	
+
 	var _renderCalendar2 = _interopRequireDefault(_renderCalendar);
-	
+
 	var _activateRoomName = __webpack_require__(12);
-	
+
 	var _activateRoomName2 = _interopRequireDefault(_activateRoomName);
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
 	(0, _createSvgSprite2.default)();
-	
+
 	(0, _flatpickrInit2.default)();
-	
+
 	(0, _openCalendar2.default)('calendarTrigger', 'calendar', 'opened', 'calendar-opened');
-	
+
 	(0, _showPopup2.default)('deleteEventPopup', 'deleteEventPopupTrigger');
-	
+
 	(0, _renderTimeSlotInfoView2.default)();
-	
+
 	(0, _activateFieldAutocomplete2.default)();
-	
+
 	_renderCalendar2.default.render();
-	
+
 	(0, _activateRoomName2.default)();
 
 /***/ }),
@@ -101,11 +101,11 @@
 /***/ (function(module, exports) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
+
 	exports.default = function () {
 	  var file = 'img/icons/sprite.svg'; // путь к файлу спрайта
 	  var revision = 1; // версия спрайта
@@ -125,7 +125,7 @@
 	      document.addEventListener('DOMContentLoaded', insertIT);
 	    }
 	  };
-	
+
 	  if (isLocalStorage && localStorage.getItem('inlineSVGrev') === revision) {
 	    data = localStorage.getItem('inlineSVGdata');
 	    if (data) {
@@ -158,19 +158,19 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
+
 	var _flatpickr = __webpack_require__(3);
-	
+
 	var _flatpickr2 = _interopRequireDefault(_flatpickr);
-	
+
 	var _ru = __webpack_require__(4);
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
 	exports.default = function () {
 	  var today = new Date();
 	  var afterThirtyMinutes = new Date(today.getTime() + 30 * 60 * 1000);
@@ -205,15 +205,15 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
-	
+
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-	
+
 	/* flatpickr v4.1.4, @license MIT */
 	(function (global, factory) {
 	    ( false ? 'undefined' : _typeof(exports)) === 'object' && typeof module !== 'undefined' ? module.exports = factory() :  true ? !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : global.flatpickr = factory();
 	})(undefined, function () {
 	    'use strict';
-	
+
 	    /*! *****************************************************************************
 	    Copyright (c) Microsoft Corporation. All rights reserved.
 	    Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -229,7 +229,7 @@
 	    and limitations under the License.
 	    ***************************************************************************** */
 	    /* global Reflect, Promise */
-	
+
 	    var __assign = Object.assign || function __assign(t) {
 	        for (var s, i = 1, n = arguments.length; i < n; i++) {
 	            s = arguments[i];
@@ -239,7 +239,7 @@
 	        }
 	        return t;
 	    };
-	
+
 	    function compareDates(date1, date2, timeless) {
 	        if (timeless !== false) {
 	            return new Date(date1.getTime()).setHours(0, 0, 0, 0) - new Date(date2.getTime()).setHours(0, 0, 0, 0);
@@ -256,7 +256,7 @@
 	    var duration = {
 	        DAY: 86400000
 	    };
-	
+
 	    var defaults = {
 	        _disable: [],
 	        _enable: [],
@@ -309,7 +309,7 @@
 	        weekNumbers: false,
 	        wrap: false
 	    };
-	
+
 	    var english = {
 	        weekdays: {
 	            shorthand: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
@@ -341,7 +341,7 @@
 	        toggleTitle: "Click to toggle",
 	        amPM: ["AM", "PM"]
 	    };
-	
+
 	    var pad = function pad(number) {
 	        return ("0" + number).slice(-2);
 	    };
@@ -371,7 +371,7 @@
 	        var delta = e.wheelDelta || -e.deltaY;
 	        return delta >= 0 ? 1 : -1;
 	    }
-	
+
 	    function toggleClass(elem, className, bool) {
 	        if (bool === true) return elem.classList.add(className);
 	        elem.classList.remove(className);
@@ -405,7 +405,7 @@
 	        wrapper.appendChild(arrowDown);
 	        return wrapper;
 	    }
-	
+
 	    var do_nothing = function do_nothing() {
 	        return undefined;
 	    };
@@ -564,7 +564,7 @@
 	            return String(date.getFullYear()).substring(2);
 	        }
 	    };
-	
+
 	    if (typeof Object.assign !== "function") {
 	        Object.assign = function (target) {
 	            var args = [];
@@ -588,7 +588,7 @@
 	            return target;
 	        };
 	    }
-	
+
 	    function FlatpickrInstance(element, instanceConfig) {
 	        var self = {};
 	        self.parseDate = parseDate;
@@ -1941,7 +1941,7 @@
 	        return new Date(this.getFullYear(), this.getMonth(), this.getDate() + (typeof days === "string" ? parseInt(days, 10) : days));
 	    };
 	    var flatpickr$1 = flatpickr;
-	
+
 	    return flatpickr$1;
 	});
 
@@ -1950,15 +1950,15 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
-	
+
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-	
+
 	/* flatpickr v4.1.4, @license MIT */
 	(function (global, factory) {
 	    ( false ? 'undefined' : _typeof(exports)) === 'object' && typeof module !== 'undefined' ? factory(exports) :  true ? !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : factory(global.ru = {});
 	})(undefined, function (exports) {
 	    'use strict';
-	
+
 	    var fp = typeof window !== "undefined" && window.flatpickr !== undefined ? window.flatpickr : {
 	        l10ns: {}
 	    };
@@ -1978,10 +1978,10 @@
 	    };
 	    fp.l10ns.ru = Russian;
 	    var ru = fp.l10ns;
-	
+
 	    exports.Russian = Russian;
 	    exports['default'] = ru;
-	
+
 	    Object.defineProperty(exports, '__esModule', { value: true });
 	});
 
@@ -1990,30 +1990,30 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
+
 	var _hideOnClickOutside = __webpack_require__(6);
-	
+
 	var _hideOnClickOutside2 = _interopRequireDefault(_hideOnClickOutside);
-	
+
 	var _helpers = __webpack_require__(7);
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
 	exports.default = function (calendarTriggerId, calendarId, classToAdd, classToBody) {
 	  var calendarTrigger = document.getElementById(calendarTriggerId);
 	  var calendar = document.getElementById(calendarId);
 	  var body = document.querySelector('body');
-	
+
 	  if (calendarTrigger === null) {
 	    return false;
 	  }
-	
+
 	  var calendarOverlay = calendar.querySelector('.calendar__overlay');
-	
+
 	  calendarTrigger.addEventListener('click', function (e) {
 	    e.preventDefault();
 	    if (calendar.classList.contains(classToAdd)) {
@@ -2022,17 +2022,17 @@
 	      calendar.classList.add(classToAdd);
 	      body.classList.add(classToBody);
 	    }
-	
+
 	    (0, _hideOnClickOutside2.default)('#' + calendarId, removeAction);
-	
+
 	    (0, _helpers.addListenerMulti)(calendarOverlay, 'click touchstart', removeAction);
 	  });
-	
+
 	  var removeAction = function removeAction() {
 	    calendar.classList.remove(classToAdd);
 	    body.classList.remove(classToBody);
 	  };
-	
+
 	  return true;
 	};
 
@@ -2041,39 +2041,39 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
+
 	var _helpers = __webpack_require__(7);
-	
+
 	exports.default = function (selector, callback) {
 	  var outsideClickListener = function outsideClickListener(event) {
 	    var elem = document.querySelector(selector);
 	    var elemChildIsTarget = checkEventTarget(event, selector);
 	    var clickCallback = callback || function () {};
-	
+
 	    if (event.target !== elem && !elemChildIsTarget) {
 	      clickCallback();
 	      removeClickListener();
 	    }
 	  };
-	
+
 	  var removeClickListener = function removeClickListener() {
 	    (0, _helpers.removeListenerMulti)(document, 'click touchstart', outsideClickListener);
 	  };
-	
+
 	  (0, _helpers.addListenerMulti)(document, 'click touchstart', outsideClickListener);
 	};
-	
+
 	function checkEventTarget(event, selector) {
 	  var elem = document.querySelector(selector);
 	  var isTarget = false;
-	
+
 	  for (var i = 0; i < elem.childNodes.length; i++) {
 	    var children = elem.childNodes[i];
-	
+
 	    if (event.target === children) {
 	      isTarget = true;
 	      return isTarget;
@@ -2081,7 +2081,7 @@
 	      checkNode(children);
 	    }
 	  }
-	
+
 	  function checkNode(node) {
 	    if (node.hasChildNodes()) {
 	      for (var _i = 0; _i < node.childNodes.length; _i++) {
@@ -2108,25 +2108,25 @@
 /***/ (function(module, exports) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	var getCoords = function getCoords(elem) {
 	  var box = elem.getBoundingClientRect();
-	
+
 	  return {
 	    top: box.top + pageYOffset,
 	    left: box.left + pageXOffset
 	  };
 	};
-	
+
 	var getNodeFromMarkup = function getNodeFromMarkup(markupTemplate) {
 	  var div = document.createElement('div');
 	  div.innerHTML = markupTemplate;
 	  return div.firstChild;
 	};
-	
+
 	var getDay = function getDay(date) {
 	  // получить номер дня недели, от 0(пн) до 6(вс)
 	  var day = date.getDay();
@@ -2135,7 +2135,7 @@
 	  }
 	  return day - 1;
 	};
-	
+
 	var addListenerMulti = function addListenerMulti(el, s, fn) {
 	  s.split(' ').forEach(function (e) {
 	    el.addEventListener(e, fn, false);
@@ -2146,7 +2146,7 @@
 	    el.removeEventListener(e, fn, false);
 	  });
 	};
-	
+
 	exports.getCoords = getCoords;
 	exports.getNodeFromMarkup = getNodeFromMarkup;
 	exports.getDay = getDay;
@@ -2158,41 +2158,41 @@
 /***/ (function(module, exports) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
+
 	exports.default = function (popupId, popupTriggerId) {
 	  var popupTrigger = document.getElementById(popupTriggerId);
 	  var popup = document.getElementById(popupId);
 	  var body = document.querySelector('body');
 	  var closeTrigger = body.querySelector('[data-close]');
-	
+
 	  if (popupTrigger === null) {
 	    return false;
 	  }
-	
+
 	  popupTrigger.addEventListener('click', function (event) {
 	    event.preventDefault();
-	
+
 	    body.classList.add('modal-is-opened');
 	    popup.classList.add('opened');
 	  });
-	
+
 	  closeTrigger.addEventListener('click', function (event) {
 	    event.preventDefault();
-	
+
 	    closePopup(popupId);
 	  });
-	
+
 	  return true;
 	};
-	
+
 	function closePopup(popupId) {
 	  var body = document.querySelector('body');
 	  var popup = document.getElementById(popupId);
-	
+
 	  body.classList.remove('modal-is-opened');
 	  popup.classList.remove('opened');
 	}
@@ -2202,35 +2202,35 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	
+
 	var _helpers = __webpack_require__(7);
-	
+
 	var _hideOnClickOutside = __webpack_require__(6);
-	
+
 	var _hideOnClickOutside2 = _interopRequireDefault(_hideOnClickOutside);
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
 	var timeSlotArr = document.querySelectorAll('[data-time-slot]');
-	
+
 	var timeSlotInfoTemplate = '<div class="time-slot-info" id="timeSlotInfoModal">\n    <i class="time-slot-info__marker"></i>\n    <div class="time-slot-info__cnt">\n        <a href="event-edit.html" class="time-slot-info__trigger">\n            <i>\n                <svg width="12" height="12">\n                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-edit"></use>\n                </svg>\n            </i>\n        </a>\n\n        <div class="time-slot-info__title">\n            \u0420\u0430\u0441\u0441\u0443\u0436\u0434\u0435\u043D\u0438\u044F \u043E \u0432\u044B\u0441\u043E\u043A\u043E\u043C\n        </div>\n\n        <div class="time-slot-info__descr">\n            14 \u0434\u0435\u043A\u0430\u0431\u0440\u044F, 15:00\u201417:00\xB7\u0416\u0451\u043B\u0442\u044B\u0439 \u0434\u043E\u043C\n        </div>\n        <div class="time-slot-info__users">\n            <div class="user">\n                <div class="user__icon">\n                    <img src="img/users/3.jpg" alt="">\n                </div>\n                \u0414\u0430\u0440\u0442 \u0412\u0435\u0439\u0434\u0435\u0440\n            </div>&nbsp;\u0438 12 \u0443\u0447\u0430\u0441\u0442\u043D\u0438\u043A\u043E\u0432\n        </div>\n    </div>\n</div>';
-	
+
 	exports.default = function () {
 	    var _iteratorNormalCompletion = true;
 	    var _didIteratorError = false;
 	    var _iteratorError = undefined;
-	
+
 	    try {
 	        var _loop = function _loop() {
 	            var timeSlot = _step.value;
-	
+
 	            timeSlot.addEventListener('click', function (event) {
 	                event.preventDefault();
-	
+
 	                var timeSlotComputedStyle = getComputedStyle(timeSlot);
 	                var timeSlotHeight = +timeSlotComputedStyle.height.slice(0, -2);
 	                var timeSlotWidth = +timeSlotComputedStyle.width.slice(0, -2);
@@ -2240,10 +2240,10 @@
 	                var body = document.querySelector('body');
 	                var timeSlotInfoNode = (0, _helpers.getNodeFromMarkup)(timeSlotInfoTemplate);
 	                var windowWidth = window.innerWidth;
-	
+
 	                timeSlot.classList.add('focused');
 	                body.appendChild(timeSlotInfoNode);
-	
+
 	                setTimeout(function () {
 	                    if (windowWidth < 1280) {
 	                        var timeSlotInfoMarker = document.querySelector('.time-slot-info__marker');
@@ -2257,7 +2257,7 @@
 	                    }
 	                    timeSlotInfoNode.classList.add('showed');
 	                }, 100);
-	
+
 	                setTimeout(function () {
 	                    (0, _hideOnClickOutside2.default)('#timeSlotInfoModal', function () {
 	                        body.removeChild(timeSlotInfoNode);
@@ -2266,7 +2266,7 @@
 	                }, 10);
 	            });
 	        };
-	
+
 	        for (var _iterator = timeSlotArr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	            _loop();
 	        }
@@ -2291,42 +2291,42 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
+
 	var _hideOnClickOutside = __webpack_require__(6);
-	
+
 	var _hideOnClickOutside2 = _interopRequireDefault(_hideOnClickOutside);
-	
+
 	var _helpers = __webpack_require__(7);
-	
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
+
 	exports.default = function () {
 	  var fieldAutocompleteArr = document.querySelectorAll('[data-autocomplete]');
-	
+
 	  var _iteratorNormalCompletion = true;
 	  var _didIteratorError = false;
 	  var _iteratorError = undefined;
-	
+
 	  try {
 	    var _loop = function _loop() {
 	      var fieldAutocomplete = _step.value;
-	
+
 	      var fieldAutocompleteInput = fieldAutocomplete.querySelector('[data-autocomplete-input]');
-	
+
 	      var fieldAutocompleteInputHandler = function fieldAutocompleteInputHandler() {
 	        fieldAutocomplete.classList.add('opened');
 	        (0, _hideOnClickOutside2.default)('[data-autocomplete-input]', function () {
 	          fieldAutocomplete.classList.remove('opened');
 	        });
 	      };
-	
+
 	      (0, _helpers.addListenerMulti)(fieldAutocompleteInput, 'click touchstart', fieldAutocompleteInputHandler);
 	    };
-	
+
 	    for (var _iterator = fieldAutocompleteArr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	      _loop();
 	    }
@@ -2351,27 +2351,27 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
+
 	var _helpers = __webpack_require__(7);
-	
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
+
 	var RenderCalendar = function () {
 	  function RenderCalendar() {
 	    _classCallCheck(this, RenderCalendar);
-	
+
 	    this.calendarWidget = document.getElementById('calendarWidget');
 	    this.calendar = document.getElementById('calendar');
 	    this._monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
 	    this._monthNamesShortcuts = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
 	  }
-	
+
 	  _createClass(RenderCalendar, [{
 	    key: 'getMonth',
 	    value: function getMonth(year, month) {
@@ -2380,69 +2380,69 @@
 	      var qurrentDate = new Date();
 	      var today = qurrentDate.getDate();
 	      var qurrentMonth = qurrentDate.getMonth();
-	
+
 	      var daysView = '';
-	
+
 	      for (var i = 0; i < (0, _helpers.getDay)(d); i++) {
 	        daysView += '<div class="month__day empty"></div>';
 	      }
-	
+
 	      while (d.getMonth() === month) {
 	        var todayClass = '';
 	        if (d.getDate() === today && qurrentMonth === month) {
 	          todayClass = 'today';
 	        }
-	
+
 	        daysView += '<div class="month__day ' + todayClass + '" data-shortcut="' + monthShortName + '">' + d.getDate() + '</div>';
-	
+
 	        d.setDate(d.getDate() + 1);
 	      }
-	
+
 	      if ((0, _helpers.getDay)(d) !== 0) {
 	        for (var _i = (0, _helpers.getDay)(d); _i < 7; _i++) {
 	          daysView += '<div class="month__day empty"></div>';
 	        }
 	      }
-	
+
 	      var monthView = '<div class="calendar-widget__month month">\n                          <div class="month__name">' + this._monthNames[month] + '</div>\n                          <div class="month__week">\n                              <div class="month__day">\u041F\u043D</div>\n                              <div class="month__day">\u0412\u0442</div>\n                              <div class="month__day">\u0421\u0440</div>\n                              <div class="month__day">\u0427\u0442</div>\n                              <div class="month__day">\u041F\u0442</div>\n                              <div class="month__day">\u0421\u0431</div>\n                              <div class="month__day">\u0412\u0441</div>\n                          </div>\n  \n                          <div class="month__days">\n                              ' + daysView + '\n                          </div>\n                      </div>';
-	
+
 	      return monthView;
 	    }
 	  }, {
 	    key: 'moveCalendarWidget',
 	    value: function moveCalendarWidget() {
 	      var yearQuarter = this.calendarWidget.getAttribute('data-quarter');
-	
+
 	      this.calendarWidget.style.transform = 'translateX(-' + 100 * (+yearQuarter - 1) + '%)';
 	    }
 	  }, {
 	    key: 'activateCalendarSlide',
 	    value: function activateCalendarSlide() {
 	      var _this = this;
-	
+
 	      var calendarTriggerArr = this.calendar.querySelectorAll('[data-calendar-trigger]');
 	      var self = this;
 	      var yearQuarter = this.calendarWidget.getAttribute('data-quarter');
-	
+
 	      var _iteratorNormalCompletion = true;
 	      var _didIteratorError = false;
 	      var _iteratorError = undefined;
-	
+
 	      try {
 	        var _loop = function _loop() {
 	          var calendarTrigger = _step.value;
-	
+
 	          calendarTrigger.addEventListener('click', function () {
 	            var calendarTriggerDirection = calendarTrigger.getAttribute('data-direction');
 	            var windowWidth = window.innerWidth;
 	            var quarterMaxValue = void 0;
-	
+
 	            if (!_this.calendar.classList.contains('opened')) {
 	              return false;
 	            }
-	
+
 	            quarterMaxValue = windowWidth < 1280 ? 12 : 4;
-	
+
 	            if (calendarTriggerDirection === 'left' && yearQuarter > 1) {
 	              --yearQuarter;
 	              _this.calendarWidget.setAttribute('data-quarter', yearQuarter);
@@ -2455,7 +2455,7 @@
 	            return true;
 	          });
 	        };
-	
+
 	        for (var _iterator = calendarTriggerArr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	          _loop();
 	        }
@@ -2478,27 +2478,27 @@
 	    key: 'dayHandler',
 	    value: function dayHandler() {
 	      var _this2 = this;
-	
+
 	      var dayArr = this.calendarWidget.querySelectorAll('.month__days .month__day:not(.empty)');
 	      var calendarHeaderTitle = this.calendar.querySelector('.calendar__header-date-title');
-	
+
 	      var _iteratorNormalCompletion2 = true;
 	      var _didIteratorError2 = false;
 	      var _iteratorError2 = undefined;
-	
+
 	      try {
 	        var _loop2 = function _loop2() {
 	          var day = _step2.value;
-	
+
 	          var month = day.getAttribute('data-shortcut');
-	
+
 	          day.addEventListener('click', function () {
 	            _this2.calendarWidget.querySelector('.month__day.today').classList.remove('today');
 	            day.classList.add('today');
 	            calendarHeaderTitle.innerHTML = day.innerHTML + ' ' + month;
 	          });
 	        };
-	
+
 	        for (var _iterator2 = dayArr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	          _loop2();
 	        }
@@ -2524,34 +2524,34 @@
 	      var currentDaY = new Date().getDate();
 	      var currentYear = currentDate.getFullYear();
 	      var currentMonth = currentDate.getMonth() + 1;
-	
+
 	      if (this.calendar === null) {
 	        return false;
 	      }
-	
+
 	      var calendarHeaderTitle = this.calendar.querySelector('.calendar__header-date-title');
 	      calendarHeaderTitle.innerHTML = currentDaY + ' ' + this._monthNamesShortcuts[currentMonth - 1] + ' \xB7 \u0421\u0435\u0433\u043E\u0434\u043D\u044F';
-	
+
 	      for (var i = 0; i <= 11; i++) {
 	        var monthView = this.getMonth(currentYear, i);
 	        var monthViewNode = (0, _helpers.getNodeFromMarkup)(monthView);
-	
+
 	        this.calendarWidget.appendChild(monthViewNode);
 	      }
-	
+
 	      this.activateCalendarSlide();
-	
+
 	      this.moveCalendarWidget();
-	
+
 	      this.dayHandler();
-	
+
 	      return true;
 	    }
 	  }]);
-	
+
 	  return RenderCalendar;
 	}();
-	
+
 	exports.default = new RenderCalendar();
 
 /***/ }),
@@ -2559,30 +2559,30 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-	
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
+
 	var _helpers = __webpack_require__(7);
-	
+
 	exports.default = function () {
 	  var diagramBody = document.querySelector('.diagram__body');
 	  var diagramBodyCnt = document.querySelector('.diagram__body-cnt');
-	
+
 	  if (diagramBody === null) {
 	    return;
 	  }
 	  var diagramRoomArr = diagramBodyCnt.querySelectorAll('.diagram__room');
-	
+
 	  var _iteratorNormalCompletion = true;
 	  var _didIteratorError = false;
 	  var _iteratorError = undefined;
-	
+
 	  try {
 	    for (var _iterator = diagramRoomArr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	      var diagramRoom = _step.value;
-	
+
 	      var diagramRoomName = diagramRoom.querySelector('.diagram__room-name');
 	      var roomNameTag = '<div class="room-name-tag">' + diagramRoomName.innerHTML + '</div>';
 	      var roomNameTagNode = (0, _helpers.getNodeFromMarkup)(roomNameTag);
@@ -2605,22 +2605,22 @@
 	      }
 	    }
 	  }
-	
+
 	  diagramBody.addEventListener('scroll', function () {
 	    var elCoordsLeft = -1 * (0, _helpers.getCoords)(diagramBodyCnt).left;
 	    var roomNameTagArr = document.querySelectorAll('.room-name-tag');
 	    var diagramRowBody = document.querySelector('.diagram__row-body');
 	    var diagramRowBodyLeftCoords = (0, _helpers.getCoords)(diagramRowBody).left;
-	
+
 	    if (elCoordsLeft > 180) {
 	      var _iteratorNormalCompletion2 = true;
 	      var _didIteratorError2 = false;
 	      var _iteratorError2 = undefined;
-	
+
 	      try {
 	        for (var _iterator2 = roomNameTagArr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	          var roomNameTag = _step2.value;
-	
+
 	          roomNameTag.classList.add('taged');
 	          roomNameTag.style.transform = 'translateX(' + (-1 * diagramRowBodyLeftCoords + 180) + 'px)';
 	        }
@@ -2642,11 +2642,11 @@
 	      var _iteratorNormalCompletion3 = true;
 	      var _didIteratorError3 = false;
 	      var _iteratorError3 = undefined;
-	
+
 	      try {
 	        for (var _iterator3 = roomNameTagArr[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
 	          var _roomNameTag = _step3.value;
-	
+
 	          _roomNameTag.classList.remove('taged');
 	        }
 	      } catch (err) {
@@ -2669,4 +2669,3 @@
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=common.js.map

@@ -16,6 +16,8 @@ const babel = require('gulp-babel');
 const webpack = require('gulp-webpack');
 const mocha = require('gulp-mocha');
 
+let isSourceMaps = true;
+
 gulp.task('style', function () {
   gulp.src('app/sass/main.sass')
     .pipe(plumber())
@@ -44,7 +46,7 @@ gulp.task('scripts', function () {
   gulp.src('app/js/common.js')
     .pipe(plumber())
     .pipe(webpack({
-      devtool: 'source-map',
+      devtool: isSourceMaps ? 'source-map' : null,
       module: {
         loaders: [
           { test: /\.js$/, loader: 'babel-loader'},
@@ -123,6 +125,7 @@ gulp.task('assemble', ['clean'], function () {
   gulp.start('copy', 'style');
 });
 
-gulp.task('build', ['assemble'], function () {
-  gulp.start('imagemin');
+gulp.task('build', function () {
+  isSourceMaps = false;
+  gulp.start('assemble');
 });
